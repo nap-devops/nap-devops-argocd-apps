@@ -8,6 +8,7 @@ data:
     p, role:org-admin, *, *, */*, allow
     p, role:org-admin, *, *, *, allow
 
+    g, adison.pia@napbiotec.io, role:org-admin
     g, seubpong.mon@napbiotec.io, role:org-admin
 
   policy.default: '' #role:readonly 
