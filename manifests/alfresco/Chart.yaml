@@ -39,6 +39,7 @@ dependencies:
       alfresco-digital-workspace.enabled
   - name: activemq
     version: 2.2.0-SNAPSHOT
+    repository: https://kubernetes-charts.alfresco.com/stable
     condition: activemq.enabled
   - name: alfresco-search
     version: 1.0.5-SNAPSHOT
