@@ -1,4 +1,4 @@
-alfresco-content-services:
+alfresco-common:
   enabled: true
   activemq:
     enabled: true
