@@ -1,4 +1,5 @@
 alfresco-common:
+  enabled: true
   activemq:
     enabled: true
   alfresco-search:
