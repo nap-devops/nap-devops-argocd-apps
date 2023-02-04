@@ -37,20 +37,20 @@ dependencies:
     version: 7.6.0
     condition: >-
       alfresco-digital-workspace.enabled
-  - name: activemq
-    version: 2.2.0-SNAPSHOT
-    repository: https://kubernetes-charts.alfresco.com/incubator
-    condition: activemq.enabled
-  - name: alfresco-search
-    version: 1.0.5-SNAPSHOT
-    repository: https://kubernetes-charts.alfresco.com/incubator
-    condition: alfresco-search.enabled
-  - name: alfresco-elasticsearch-connector
-    version: 0.2.0-SNAPSHOT
-    repository: https://kubernetes-charts.alfresco.com/incubator
-    condition: alfresco-elasticsearch-connector.enabled
-  - name: alfresco-sync-service
-    version: 3.0.9
+  # - name: activemq
+  #   version: 2.2.0-SNAPSHOT
+  #   repository: https://kubernetes-charts.alfresco.com/incubator
+  #   condition: activemq.enabled
+  # - name: alfresco-search
+  #   version: 1.0.5-SNAPSHOT
+  #   repository: https://kubernetes-charts.alfresco.com/incubator
+  #   condition: alfresco-search.enabled
+  # - name: alfresco-elasticsearch-connector
+  #   version: 0.2.0-SNAPSHOT
+  #   repository: https://kubernetes-charts.alfresco.com/incubator
+  #   condition: alfresco-elasticsearch-connector.enabled
+  # - name: alfresco-sync-service
+  #   version: 3.0.9
   - name: elasticsearch
     alias: elasticsearch
     repository: https://helm.elastic.co
