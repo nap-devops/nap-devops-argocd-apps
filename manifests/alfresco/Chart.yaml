@@ -4,6 +4,7 @@ version: 5.4.0-SNAPSHOT
 description: A Helm chart for deploying Alfresco Content Services
 
 dependencies:
-  - name: alfresco-common
+  - name: alfresco-content-services
     version: 0.3.0-SNAPSHOT
     repository: https://kubernetes-charts.alfresco.com/incubator
+    condition: alfresco-content-services.enabled
