@@ -47,6 +47,7 @@ dependencies:
     condition: alfresco-search.enabled
   - name: alfresco-elasticsearch-connector
     version: 0.2.0-SNAPSHOT
+    repository: https://kubernetes-charts.alfresco.com/incubator
     condition: alfresco-elasticsearch-connector.enabled
   - name: alfresco-sync-service
     version: 3.0.9
