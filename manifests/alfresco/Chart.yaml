@@ -1,6 +1,7 @@
 apiVersion: v2
 name: alfresco-content-services
 version: 5.4.0-SNAPSHOT
+appVersion: 5.17.1
 description: A Helm chart for deploying Alfresco Content Services
 
 dependencies:
