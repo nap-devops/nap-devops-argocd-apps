@@ -1,20 +1,12 @@
-# alfresco-common:
-#   enabled: true
-#   activemq:
-#     enabled: true
-#   alfresco-search:
-#     enabled: true
-#   alfresco-elasticsearch-connector:
-#     enabled: true
-#   alfresco-sync-service:
-#     enabled: true
+
 alfresco-common:
+  enabled: true
   repository:
     edition: Community
     replicaCount: 1
     image:
       repository: alfresco/alfresco-content-repository-community
-      tag: 7.4.0-M2
+      tag: 7.3.0
     persistence:
       accessModes:
         - ReadWriteOnce
@@ -32,11 +24,11 @@ alfresco-common:
     replicaCount: 1
     image:
       repository: alfresco/alfresco-share
-      tag: 7.4.0-M2
+      tag: 7.3.0
   alfresco-search:
     searchServicesImage:
       repository: alfresco/alfresco-search-services
-      tag: 2.0.6-A4
+      tag: 2.0.6
 # Disable Enterprise only features
   alfresco-digital-workspace:
     enabled: false
