@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: alfresco
+  name: alfresco-dev
 spec:
   generators:
   - clusters:
@@ -10,16 +10,22 @@ spec:
           custom: "true"
   template:
     metadata:
-      name: 'alfresco-{{name}}'
+      name: 'alfresco-dev'
     spec:
       project: "default"
       source:
-        repoURL: git@github.com:nap-devops/nap-devops-argocd-apps.git
-        targetRevision: "{{name}}" #Based on environment
-        path: 'manifests/alfresco'
+        repoURL: git@github.com:nap-devops/nap-alfresco-deployment.git
+        targetRevision: "development"
+        path: 'alfresco-common'
+        helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - values.yaml
+            - values-tags-development.yaml
+            - values-development.yaml
       destination:
         name: in-cluster
-        namespace: alfresco
+        namespace: alfresco-dev
       syncPolicy:
         automated:
           selfHeal: true

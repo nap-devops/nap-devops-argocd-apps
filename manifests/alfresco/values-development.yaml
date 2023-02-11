@@ -1,9 +1,0 @@
-alfresco-common:
-  activemq:
-    enabled: true
-  alfresco-search:
-    enabled: true
-  alfresco-elasticsearch-connector:
-    enabled: true
-  alfresco-sync-service:
-    enabled: true
