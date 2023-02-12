@@ -1,0 +1,33 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ing-2
+  annotations:
+    kubernetes.io/ingress.allow-http: 'true'
+    kubernetes.io/ingress.global-static-ip-name: gke-ingress-2
+spec:
+  tls:
+    - secretName: nginx-internal-napbiotec-io
+  rules:
+    - host: '*.{{ .Values.domain8 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendServiceIap }}
+                port:
+                  number: 443
+    - host: '{{ .Values.domain8 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendServiceIap }}
+                port:
+                  number: 443
+

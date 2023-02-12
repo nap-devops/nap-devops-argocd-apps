@@ -5,8 +5,10 @@ domain4: napbiotec.com
 domain5: genuine.napbiotec.io
 domain6: genuine-dev.napbiotec.io
 domain7: aldamexthailand.com
+domain8: internal.napbiotec.com
 
 backendService: ingress-nginx-production-controller
+backendServiceIap: ingress-nginx-iap-production-controller
 
 ingress-nginx:
   enabled: true
@@ -19,3 +21,21 @@ ingress-nginx:
         cloud.google.com/neg: '{"ingress": true}'
         cloud.google.com/backend-config: '{"default": "nginx-hc-config"}'
         cloud.google.com/app-protocols: '{"https":"HTTPS", "http":"HTTP"}'
+
+ingress-nginx-iap:
+  enabled: true
+
+  controller:
+    service:
+      enabled: true
+      type: ClusterIP
+      annotations:
+        cloud.google.com/neg: '{"ingress": true}'
+        cloud.google.com/backend-config: '{"default": "nginx-hc-config"}'
+        cloud.google.com/app-protocols: '{"https":"HTTPS", "http":"HTTP"}'
+
+    ingressClassResource:
+      name: iap-nginx  # default: nginx
+      enabled: true
+      default: false
+      controllerValue: "k8s.io/ingress-nginx-iap"  # default: k8s.io/ingress-nginx
