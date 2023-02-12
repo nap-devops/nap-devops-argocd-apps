@@ -1,7 +1,20 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: data-orangehrm
+  name: data-orangehrm-cache
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-orangehrm-log
 spec:
   accessModes:
   - ReadWriteOnce

@@ -41,13 +41,22 @@ orangehrm:
         value: "100"
 
     volumes:
-      - name: data
+      - name: cache
         persistentVolumeClaim:
-          claimName: data-orangehrm
+          claimName: data-orangehrm-cache
+
+      - name: log
+        persistentVolumeClaim:
+          claimName: data-orangehrm-log
 
     volumeMounts:
-      - name: data
-        mountPath: /orangehrm
+      - name: cache
+        mountPath: /var/www/html/src
+        subPath: cache
+
+      - name: log
+        mountPath: /var/www/html/src
+        subPath: log
 
 mariadb:
   enabled: true
