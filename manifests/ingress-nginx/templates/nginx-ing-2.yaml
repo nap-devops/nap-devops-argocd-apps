@@ -6,7 +6,7 @@ metadata:
   annotations:
     networking.gke.io/managed-certificates: internal-napbiotec-io
     kubernetes.io/ingress.allow-http: 'true'
-    kubernetes.io/ingress.regional-static-ip-name: gke-ingress-2
+    kubernetes.io/ingress.global-static-ip-name: gke-ingress-2
 spec:
   rules:
     - host: '*.{{ .Values.domain8 }}'
