@@ -14,7 +14,7 @@ orangehrm:
   pods:
     initContainers:
       - name: ubuntu
-        image: latest
+        image: ubuntu:latest
         command:
         - chmod 777
         - /var/www/html/src/cache
