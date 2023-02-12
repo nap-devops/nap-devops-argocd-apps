@@ -47,7 +47,7 @@ orangehrm:
 
     volumeMounts:
       - name: data
-        mountPath: /orangehrm
+        mountPath: /var/www/html
 
 mariadb:
   enabled: true
