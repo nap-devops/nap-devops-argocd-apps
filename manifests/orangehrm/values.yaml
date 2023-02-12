@@ -1,3 +1,5 @@
+domain: orangehrm.internal.napbiotec.io
+
 orangehrm:
   enabled: true
   nameOverride: orangehrm
@@ -30,7 +32,7 @@ orangehrm:
 
       - name: PGID
         value: "100"
-        
+
 mysql:
   enabled: true
   image:
