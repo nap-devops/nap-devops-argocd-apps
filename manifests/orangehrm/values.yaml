@@ -40,15 +40,14 @@ orangehrm:
       - name: PGID
         value: "100"
 
-    #volumes:
-    #  - name: data
-    #    secret:
-    #      secretName: basic-authe-secret
-    #      optional: false
+    volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: data-orangehrm
 
-    #volumeMounts:
-    #  - name: data
-    #    mountPath: /orangehrm
+    volumeMounts:
+      - name: data
+        mountPath: /orangehrm
 
 mariadb:
   enabled: true
