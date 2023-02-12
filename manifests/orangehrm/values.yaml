@@ -19,7 +19,7 @@ orangehrm:
 
     env:
       - name: ORANGEHRM_DATABASE_HOST
-        value: orangehrm-production-mysql
+        value: orangehrm-production-mariadb
     
       - name: ORANGEHRM_DATABASE_USER
         value: "root"
@@ -40,10 +40,8 @@ orangehrm:
       - name: PGID
         value: "100"
 
-mysql:
+mariadb:
   enabled: true
-  image:
-    tag: 8.0.28
   auth:
     database: orangehrm
     existingSecret: orangehrm-db-login

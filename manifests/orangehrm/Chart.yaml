@@ -6,10 +6,10 @@ version: 1.0.0
 appVersion: "1.0"
 
 dependencies:
-  - name: mysql
-    version: "9.2.0"
+  - name: mariadb
+    version: "11.4.6"
     repository: "https://charts.bitnami.com/bitnami"
-    condition: mysql.enabled
+    condition: mariadb.enabled
 
   - name: "generic-app"
     alias: orangehrm
