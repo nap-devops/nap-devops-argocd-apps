@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: orangehrm
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'orangehrm-{{name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:nap-devops/nap-devops-argocd-apps.git
+        targetRevision: "{{name}}" #Based on environment
+        path: 'manifests/orangehrm'
+      destination:
+        name: in-cluster
+        namespace: orangehrm
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true

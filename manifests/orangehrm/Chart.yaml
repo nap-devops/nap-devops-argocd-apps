@@ -1,0 +1,13 @@
+apiVersion: v2
+name: helm-orangehrm
+description: A Helm chart for OrangeHRM
+type: application
+version: 1.0.0
+appVersion: "1.0"
+
+dependencies:
+  - name: "orangehrm"
+    alias: orangehrm
+    condition: orangehrm.enabled
+    repository: "https://marketplace.azurecr.io/helm/v1/repo"
+    version: "11.0.1"

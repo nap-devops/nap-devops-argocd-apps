@@ -1,0 +1,6 @@
+orangehrm:
+  enabled: true
+  fullnameOverride: orangehrm
+  image:
+    repository: orangehrm/orangehrm
+    tag: 5.3
