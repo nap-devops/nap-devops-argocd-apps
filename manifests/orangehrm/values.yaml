@@ -50,12 +50,13 @@ orangehrm:
       - name: log
         persistentVolumeClaim:
           claimName: data-orangehrm-log
-
     volumeMounts:
       - name: cache
         mountPath: /var/www/html/src/cache
       - name: log
         mountPath: /var/www/html/src/log
+      - name: data
+        mountPath: /var/www/html/src/lib/confs
 
 mariadb:
   enabled: true
