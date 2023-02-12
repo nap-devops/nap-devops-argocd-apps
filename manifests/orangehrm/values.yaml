@@ -56,7 +56,7 @@ orangehrm:
       - name: log
         mountPath: /var/www/html/src/log
       - name: data
-        mountPath: /var/www/html/src/lib/confs
+        mountPath: /var/www/html/lib/confs
 
 mariadb:
   enabled: true
