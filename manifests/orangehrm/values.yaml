@@ -3,6 +3,13 @@ domain: orangehrm.internal.napbiotec.io
 orangehrm:
   enabled: true
   nameOverride: orangehrm
+  
+  service:
+    ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
 
   pods:
     controller: deployment    
