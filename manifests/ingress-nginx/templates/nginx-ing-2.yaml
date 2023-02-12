@@ -8,8 +8,6 @@ metadata:
     kubernetes.io/ingress.allow-http: 'true'
     kubernetes.io/ingress.global-static-ip-name: gke-ingress-2
 spec:
-  tls:
-    - secretName: nginx-internal-napbiotec-io
   rules:
     - host: '*.{{ .Values.domain8 }}'
       http:
