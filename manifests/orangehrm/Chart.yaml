@@ -11,3 +11,8 @@ dependencies:
     condition: orangehrm.enabled
     repository: "https://marketplace.azurecr.io/helm/v1/repo"
     version: "11.0.1"
+
+  - name: mysql
+    version: "9.2.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mysql.enabled

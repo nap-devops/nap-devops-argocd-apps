@@ -5,3 +5,11 @@ orangehrm:
     registry: docker.io
     repository: orangehrm/orangehrm
     tag: 5.3
+
+mysql:
+  enabled: true
+  image:
+    tag: 8.0.28
+  auth:
+    database: orangehrm
+    existingSecret: orangehrm-db-login
