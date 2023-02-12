@@ -6,13 +6,13 @@ version: 1.0.0
 appVersion: "1.0"
 
 dependencies:
-  - name: "orangehrm"
-    alias: orangehrm
-    condition: orangehrm.enabled
-    repository: "https://marketplace.azurecr.io/helm/v1/repo"
-    version: "11.0.1"
-
   - name: mysql
     version: "9.2.0"
     repository: "https://charts.bitnami.com/bitnami"
     condition: mysql.enabled
+
+  - name: "generic-app"
+    alias: orangehrm
+    condition: orangehrm.enabled
+    repository: "https://charts.visonneau.fr/"
+    version: "0.0.14"
