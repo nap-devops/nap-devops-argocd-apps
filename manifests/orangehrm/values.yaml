@@ -2,5 +2,6 @@ orangehrm:
   enabled: true
   fullnameOverride: orangehrm
   image:
+    registry: docker.io
     repository: orangehrm/orangehrm
     tag: 5.3
