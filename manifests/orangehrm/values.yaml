@@ -1,5 +1,5 @@
 orangehrm:
-  enabled: false
+  enabled: false #CHANGE THIS
   fullnameOverride: orangehrm
   image:
     registry: docker.io
