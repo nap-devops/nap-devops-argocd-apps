@@ -12,6 +12,22 @@ orangehrm:
       targetPort: 80
 
   pods:
+    initContainers:
+      - name: ubuntu
+        image: latest
+        command:
+        - chmod 777
+        - /var/www/html/src/cache
+        - /var/www/html/src/log
+        - /var/www/html/lib/confs
+        volumeMounts:
+          - name: cache
+            mountPath: /var/www/html/src/cache
+          - name: log
+            mountPath: /var/www/html/src/log
+          - name: data
+            mountPath: /var/www/html/lib/confs
+  
     controller: deployment     
     image:
       name: docker.io/orangehrm/orangehrm
