@@ -4,8 +4,8 @@ metadata:
   name: orangehrm-ing
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
-    kubernetes.io/ingress.class: "iap-nginx"
 spec:
+  ingressClassName: iap-nginx
   tls:
     - hosts:
       - {{ .Values.domain }}
