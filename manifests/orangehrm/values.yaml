@@ -12,7 +12,7 @@ orangehrm:
       targetPort: 80
 
   pods:
-    controller: deployment    
+    controller: deployment     
     image:
       name: docker.io/orangehrm/orangehrm
       tag: 5.3
@@ -39,6 +39,16 @@ orangehrm:
 
       - name: PGID
         value: "100"
+
+    #volumes:
+    #  - name: data
+    #    secret:
+    #      secretName: basic-authe-secret
+    #      optional: false
+
+    #volumeMounts:
+    #  - name: data
+    #    mountPath: /orangehrm
 
 mariadb:
   enabled: true
