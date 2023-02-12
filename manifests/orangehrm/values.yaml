@@ -16,7 +16,8 @@ orangehrm:
       - name: ubuntu
         image: ubuntu:latest
         command:
-        - chmod 777
+        - chmod
+        - "777"
         - /var/www/html/src/cache
         - /var/www/html/src/log
         - /var/www/html/lib/confs
