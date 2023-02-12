@@ -10,7 +10,8 @@ dependencies:
     repository: "https://kubernetes.github.io/ingress-nginx/"
     condition: ingress-nginx.enabled
 
-  - name: ingress-nginx-iap
+  - name: ingress-nginx
+    alias: ingress-nginx-iap
     version: "4.1.4"
     repository: "https://kubernetes.github.io/ingress-nginx/"
     condition: ingress-nginx-iap.enabled
