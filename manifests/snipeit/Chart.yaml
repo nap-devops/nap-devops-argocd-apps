@@ -1,0 +1,12 @@
+apiVersion: v2
+name: helm-orangehrm
+description: A Helm chart for OrangeHRM
+type: application
+version: 1.0.0
+appVersion: "1.0"
+
+dependencies:
+  - name: snipeit
+    version: "3.4.0"
+    repository: "https://storage.googleapis.com/t3n-helm-charts"
+    condition: snipeit.enabled
