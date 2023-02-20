@@ -4,6 +4,7 @@ snipeit:
   enabled: true
   config:
     snipeit:
+      url: https://snipeit.internal.napbiotec.io
       key: base64:uxA0D1SdxZJ5afqbNadLOoPkVzjdmSgneILipsFfclI=
   ingress:
     enabled: false
