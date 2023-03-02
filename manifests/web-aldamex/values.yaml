@@ -9,7 +9,7 @@ wordpress:
     enabled: false
 
   image:
-    tag: 5.9.1
+    tag: 6.1.1
 
   ingress:
     annotations:
