@@ -110,7 +110,7 @@ spec:
                 name: {{ .Values.backendService }}
                 port:
                   number: 443
-    - host: '{{ .Values.domain5 }}'
+    - host: '*.{{ .Values.domain5 }}'
       http:
         paths:
           - path: /*
@@ -120,7 +120,7 @@ spec:
                 name: {{ .Values.backendService }}
                 port:
                   number: 443
-    - host: '{{ .Values.domain6 }}'
+    - host: '*.{{ .Values.domain6 }}'
       http:
         paths:
           - path: /*
