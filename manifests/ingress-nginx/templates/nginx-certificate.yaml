@@ -52,3 +52,29 @@ spec:
     name: lets-encrypt-issuer-top-prod
     kind: ClusterIssuer
     group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-cert-genuine
+spec:
+  secretName: nginx-cert-genuine
+  dnsNames:
+    - '*.{{ .Values.domain5 }}'
+  issuerRef:
+    name: lets-encrypt-issuer-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-cert-genuine-dev
+spec:
+  secretName: nginx-cert-genuine
+  dnsNames:
+    - '*.{{ .Values.domain6 }}'
+  issuerRef:
+    name: lets-encrypt-issuer-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
