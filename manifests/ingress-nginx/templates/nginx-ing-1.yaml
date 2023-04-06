@@ -14,6 +14,8 @@ spec:
     - secretName: nginx-cert-napbiotec
     - secretName: nginx-cert-napbiotec-com
     - secretName: nginx-cert-genuine-napbiotec-io
+    - secretName: nginx-cert-genuine
+    - secretName: nginx-cert-genuine-dev
   rules:
     - host: '*.{{ .Values.domain }}'
       http:

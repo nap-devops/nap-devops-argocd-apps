@@ -71,7 +71,7 @@ kind: Certificate
 metadata:
   name: nginx-cert-genuine-dev
 spec:
-  secretName: nginx-cert-genuine
+  secretName: nginx-cert-genuine-dev
   dnsNames:
     - '*.{{ .Values.domain6 }}'
   issuerRef:
