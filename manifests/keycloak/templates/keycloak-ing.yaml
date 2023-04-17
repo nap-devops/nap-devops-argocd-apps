@@ -18,6 +18,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: keycloak-http
+                name: keycloak-production-http
                 port:
                   number: 80
