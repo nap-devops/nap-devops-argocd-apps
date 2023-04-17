@@ -1,0 +1,19 @@
+domain: keycloak.devops.napbiotec.io
+
+keycloak:
+  extraEnv: |
+    - name: KEYCLOAK_LOGLEVEL
+      value: DEBUG
+    - name: PROXY_ADDRESS_FORWARDING
+      value: "true"
+
+  securityContext:
+    runAsUser: 0
+    runAsNonRoot: false
+
+  postgresql:  
+    enabled: true  
+    persistence:
+      size: 20Gi
+
+  
