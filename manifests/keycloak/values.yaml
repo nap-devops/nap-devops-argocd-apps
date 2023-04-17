@@ -6,7 +6,16 @@ keycloak:
       value: DEBUG
     - name: PROXY_ADDRESS_FORWARDING
       value: "true"
-
+    - name: KEYCLOAK_USER
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin
+          key: keycloak-user
+    - name: KEYCLOAK_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin
+          key: keycloak-password
   securityContext:
     runAsUser: 0
     runAsNonRoot: false
