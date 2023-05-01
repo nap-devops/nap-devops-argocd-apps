@@ -1,0 +1,41 @@
+{
+    "connection": {
+        "remoteIP": "::ffff:192.168.3.18",
+        "remotePort": 33068,
+        "localIP": "::ffff:192.168.4.28",
+        "localPort": 8080
+    },
+    "request": {
+        "path": "/api/assets/org/napbiotec/action/GetAssets",
+        "pathBase": "",
+        "queryString": "",
+        "size": 120,
+        "method": "POST",
+        "contentType": "application/json; charset=utf-8",
+        "userAgent": "genuine-cli/1.0",
+        "host": "api.genuine-dev.napbiotec.io",
+        "forwardedFor": "58.8.215.207, 34.160.241.180",
+        "clientIP": "58.8.215.207"
+    },
+    "response": {
+        "status": 200,
+        "size": null,
+        "contentType": "application/json; charset=utf-8",
+        "redirectLocation": null
+    },
+    "api": {
+        "path": "/api/assets/org/napbiotec/action/GetAssets",
+        "method": "POST",
+        "resourceType": "assets",
+        "organzation": "napbiotec",
+        "action": "GetAssets",
+        "resourceId": null,
+        "data1": null,
+        "data2": null,
+        "claims": {
+            "nameidentifier": "genuine-cli",
+            "name": "genuine-cli",
+            "role": "Fake"
+        }
+    }
+}

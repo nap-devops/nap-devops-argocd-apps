@@ -306,6 +306,8 @@ def get_category(event, message)
     category = "undefined"
 
     if match = message.match(/^.+? .+? genuine-(.+?)-.+?-.+? dotnet (.+?) - - (.*)$/)
+        puts("DEBUG --> #{message}")
+
         env, version, payload = match.captures
         category = "genuine-#{env}"
         event.set('genuine_payload', payload)
@@ -543,7 +545,7 @@ end
 
 def filter(event)
     data = event.get('message')
-    arr1 = data.split(',')     
+    arr1 = data.split(',')
     category = get_category(event, data)
 
     event.set('evt_category_org', category)
@@ -559,7 +561,7 @@ def filter(event)
     load_cti_cahce(event, @mc, 'evt_domain', 'domain', 'evt_alert_by_dmdm')
     add_alert_metadata(event)
 
-    populate_ts_aggregate(event)    
+    populate_ts_aggregate(event)
     create_metric(event)
 
     ##### OLD #####
