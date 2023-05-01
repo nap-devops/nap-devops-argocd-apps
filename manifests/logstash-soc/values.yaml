@@ -114,7 +114,7 @@ logstash-syslog:
 
   extraEnvs:
     - name: DUMMY_FOR_RESTART #If need to restart pod manually then change this
-      value: "031"
+      value: "032"
 
     - name: LS_JAVA_OPTS
       value: "-Xmx256m -Xms256m"

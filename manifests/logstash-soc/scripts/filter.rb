@@ -306,8 +306,7 @@ def get_category(event, message)
     category = "undefined"
 
     if match = message.match(/^.+? .+? genuine-(.+?)-.+?-.+? dotnet (.+?) - - (.*)$/)
-        puts("DEBUG --> #{message}")
-
+        #puts("DEBUG --> #{message}")
         env, version, payload = match.captures
         category = "genuine-#{env}"
         event.set('genuine_payload', payload)

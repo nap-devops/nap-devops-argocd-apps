@@ -1,0 +1,52 @@
+{
+    "connection": {
+        "remoteIP": "::1",
+        "remotePort": 54281,
+        "localIP": "::1",
+        "localPort": 5001
+    },
+    "request": {
+        "path": "/api/assets/org/napbiotec/action/GetAssets",
+        "pathBase": "",
+        "queryString": "",
+        "size": 217,
+        "method": "POST",
+        "contentType": "application/json",
+        "userAgent": "PostmanRuntime/7.32.2",
+        "host": "localhost",
+        "forwardedFor": null,
+        "clientIP": null
+    },
+    "response": {
+        "status": 200,
+        "size": null,
+        "contentType": "application/json; charset=utf-8",
+        "redirectLocation": null
+    },
+    "api": {
+        "path": "/api/assets/org/napbiotec/action/GetAssets",
+        "method": "POST",
+        "resourceType": "assets",
+        "organzation": "napbiotec",
+        "action": "GetAssets",
+        "resourceId": null,
+        "data1": null,
+        "data2": null,
+        "claims": {
+            "aud": "account",
+            "nameidentifier": "80215845-08df-414e-9c88-a9436b904674",
+            "typ": "Bearer",
+            "azp": "genuine-oauth-app",
+            "scope": "profile email",
+            "email_verified": "false",
+            "name": "Seubpong Monsar",
+            "preferred_username": "seubpong",
+            "givenname": "Seubpong",
+            "surname": "Monsar",
+            "emailaddress": "seubpong.mon@napbiotec.io"
+        }
+    },
+    "connectionId": "0HMQA01DJ6JO1",
+    "eventDtm": "2023-05-01T11:56:00.4514875+07:00",
+    "latencyMs": 841.4372
+}

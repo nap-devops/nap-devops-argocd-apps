@@ -1,0 +1,59 @@
+{
+    "connection": {
+        "remoteIP": "::1",
+        "remotePort": 53547,
+        "localIP": "::1",
+        "localPort": 5001
+    },
+    "request": {
+        "path": "/api/assets/org/napbiotec/action/GetAssets",
+        "pathBase": "",
+        "queryString": "",
+        "size": 217,
+        "method": "POST",
+        "contentType": "application/json",
+        "userAgent": "PostmanRuntime/7.32.2",
+        "host": "localhost",
+        "forwardedFor": null,
+        "clientIP": null
+    },
+    "response": {
+        "status": 200,
+        "size": null,
+        "contentType": "application/json; charset=utf-8",
+        "redirectLocation": null
+    },
+    "api": {
+        "path": "/api/assets/org/napbiotec/action/GetAssets",
+        "method": "POST",
+        "resourceType": "assets",
+        "organzation": "napbiotec",
+        "action": "GetAssets",
+        "resourceId": null,
+        "data1": null,
+        "data2": null,
+        "claims": {
+            "exp": "1682915681",
+            "iat": "1682915381",
+            "jti": "40e59038-95fd-4919-814b-7a7e96bada9b",
+            "iss": "https://keycloak.devops.napbiotec.io/auth/realms/genuine-sso",
+            "aud": "account",
+            "nameidentifier": "80215845-08df-414e-9c88-a9436b904674",
+            "typ": "Bearer",
+            "azp": "genuine-oauth-app",
+            "session_state": "a59f7644-a5a7-4fb6-992b-f898d1904df7",
+            "authnclassreference": "1",
+            "scope": "profile email",
+            "sid": "a59f7644-a5a7-4fb6-992b-f898d1904df7",
+            "email_verified": "false",
+            "name": "Seubpong Monsar",
+            "preferred_username": "seubpong",
+            "givenname": "Seubpong",
+            "surname": "Monsar",
+            "emailaddress": "seubpong.mon@napbiotec.io"
+        }
+    },
+    "connectionId": "0HMQ9VIEEAQ5V",
+    "eventDtm": "2023-05-01T11:29:58.9178043+07:00",
+    "latencyMs": 887.5335
+}
