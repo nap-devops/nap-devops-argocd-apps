@@ -32,7 +32,7 @@ orangehrm:
     controller: deployment     
     image:
       name: docker.io/orangehrm/orangehrm
-      tag: 5.3
+      tag: 5.4
 
     env:
       - name: ORANGEHRM_DATABASE_HOST
