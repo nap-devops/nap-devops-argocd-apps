@@ -1,6 +1,6 @@
 wordpress:
   enabled: true
-  replicaCount: 0
+  replicaCount: 1
   wordpressScheme: https
   wordpressUsername: admin
   existingSecret: 'wordpress-user-login'
@@ -18,11 +18,13 @@ wordpress:
 
     ingressClassName: nginx
     enabled: true
-    hostname: aldamex.com
-    extraHosts:
-      - name: www.aldamex.com
-      - name: aldamexthailand.com
-      - name: www.aldamexthailand.com
+    hostname: aldamex.internal.napbiotec.io
+
+    #hostname: aldamex.com
+    #extraHosts:
+    #  - name: www.aldamex.com
+    #  - name: aldamexthailand.com
+    #  - name: www.aldamexthailand.com
 
   service:
     type: ClusterIP
