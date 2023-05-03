@@ -15,21 +15,6 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
-  name: internal-napbiotec-io-2
-spec:
-  domains:
-    - 'alfresco-dev.{{ .Values.domain8 }}'
-    - 'alfresco.{{ .Values.domain8 }}'    
-    - 'orangehrm-dev.{{ .Values.domain8 }}'
-    - 'orangehrm.{{ .Values.domain8 }}'
-    - 'snipeit-dev.{{ .Values.domain8 }}'
-    - 'snipeit.{{ .Values.domain8 }}'
----
-# For some reason we are not able to generate cert by Cert Manager
-# This is the workaround, use Goolge Manage Cert instead
-apiVersion: networking.gke.io/v1
-kind: ManagedCertificate
-metadata:
   name: internal-napbiotec-io-3
 spec:
   domains:
