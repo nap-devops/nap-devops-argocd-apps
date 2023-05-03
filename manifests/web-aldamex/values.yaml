@@ -18,7 +18,7 @@ wordpress:
 
     ingressClassName: nginx
     enabled: true
-    hostname: aldamex.internal.napbiotec.io
+    hostname: temp.internal.napbiotec.io
 
     #hostname: aldamex.com
     #extraHosts:
