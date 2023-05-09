@@ -16,15 +16,15 @@ wordpress:
       nginx.ingress.kubernetes.io/proxy-body-size: 50m
       kubernetes.io/ingress.allow-http: "true" #Wordpress will redirect to https internally
 
-    ingressClassName: iap-nginx #nginx
+    ingressClassName: nginx # iap-nginx
     enabled: true
-    hostname: temp.internal.napbiotec.io
+    #hostname: temp.internal.napbiotec.io
 
-    #hostname: aldamex.com
-    #extraHosts:
-    #  - name: www.aldamex.com
-    #  - name: aldamexthailand.com
-    #  - name: www.aldamexthailand.com
+    hostname: aldamex.com
+    extraHosts:
+      - name: www.aldamex.com
+      - name: aldamexthailand.com
+      - name: www.aldamexthailand.com
 
   service:
     type: ClusterIP
