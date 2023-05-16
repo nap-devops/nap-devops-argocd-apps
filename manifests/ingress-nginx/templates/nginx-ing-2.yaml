@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: nginx-ing-2
   annotations:
-    networking.gke.io/managed-certificates: internal-napbiotec-io-3,internal-napbiotec-io-4
+    networking.gke.io/managed-certificates: internal-napbiotec-io-4
     kubernetes.io/ingress.allow-http: 'true'
     kubernetes.io/ingress.global-static-ip-name: gke-ingress-2
 spec:
