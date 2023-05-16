@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kanboard
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'kanboard-{{name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:nap-devops/nap-devops-argocd-apps.git
+        targetRevision: "{{name}}" #Based on environment
+        path: 'manifests/kanboard'
+      destination:
+        name: in-cluster
+        namespace: kanboard
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true

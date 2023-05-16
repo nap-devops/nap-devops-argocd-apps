@@ -1,0 +1,68 @@
+domain: kanboard.internal.napbiotec.io
+
+#### MariaDB ####
+mariadb:
+  enabled: false
+  auth:
+    database: kanboard
+    existingSecret: kanboard-db-login
+
+#### Kanboard ####
+kanboard:
+  enabled: true
+  nameOverride: kanboard
+  podDisruptionBudget:
+    enabled: false
+  pods:
+    strategy:
+      type: Recreate
+    controller: deployment
+    image:
+      name: ghcr.io/kanboard/kanboard
+      tag: v1.2.28
+    ports:
+      - name: http
+        containerPort: 80
+        protocol: TCP
+      - name: 443-tcp
+        containerPort: 443
+        protocol: TCP
+    env:
+      - name: MYSQL_DATABASE
+        value: kanboard
+
+      - name: MYSQL_USER
+        valueFrom:
+          secretKeyRef:
+            name: kanboard-db-login
+            key: mariadb-user
+            optional: false
+
+      - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: kanboard-db-login
+            key: mariadb-root-password
+            optional: false
+
+      - name: MYSQL_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: kanboard-db-login
+            key: mariadb-password
+            optional: false
+
+  ingress:
+    enabled: false
+
+  service:
+    enabled: true
+    ports:
+      - port: 80
+        targetPort: http
+        protocol: TCP
+        name: http
+      - port: 443
+        targetPort: 443-tcp
+        protocol: TCP
+        name: 443-tcp
