@@ -31,6 +31,9 @@ kanboard:
       - name: MYSQL_DATABASE
         value: kanboard
 
+      - name: PLUGIN_INSTALLER
+        value: "true"
+
       - name: MYSQL_USER
         valueFrom:
           secretKeyRef:
