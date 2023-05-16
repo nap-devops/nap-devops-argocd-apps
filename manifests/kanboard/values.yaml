@@ -2,7 +2,7 @@ domain: kanboard.internal.napbiotec.io
 
 #### MariaDB ####
 mariadb:
-  enabled: false
+  enabled: true
   auth:
     database: kanboard
     existingSecret: kanboard-db-login
