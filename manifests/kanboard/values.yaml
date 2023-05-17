@@ -27,6 +27,20 @@ kanboard:
       - name: 443-tcp
         containerPort: 443
         protocol: TCP
+    volumeMounts:
+      - name: plugin
+        mountPath: /var/www/app/plugins
+      - name: data
+        mountPath: /var/www/app/data
+    volumes:
+      - name: data
+        secret:
+          secretName: kanboard-data
+          optional: false
+      - name: plugin
+        secret:
+          secretName: kanboard-plugin
+          optional: false
     env:
       - name: MYSQL_DATABASE
         value: kanboard
