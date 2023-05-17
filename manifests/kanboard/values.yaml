@@ -34,13 +34,11 @@ kanboard:
         mountPath: /var/www/app/data
     volumes:
       - name: data
-        secret:
-          secretName: kanboard-data
-          optional: false
+        persistentVolumeClaim:
+          claimName: kanboard-data
       - name: plugin
-        secret:
-          secretName: kanboard-plugin
-          optional: false
+        persistentVolumeClaim:
+          claimName: kanboard-plugin
     env:
       - name: MYSQL_DATABASE
         value: kanboard
