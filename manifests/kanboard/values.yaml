@@ -33,6 +33,9 @@ kanboard:
         persistentVolumeClaim:
           claimName: kanboard-plugin
     env:
+      - name: DEBUG
+        value: "true"
+
       - name: PLUGIN_INSTALLER
         value: "true"
 
