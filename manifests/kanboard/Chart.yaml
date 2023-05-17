@@ -10,8 +10,3 @@ dependencies:
     condition: kanboard.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
-
-  - name: mariadb
-    version: "12.2.3"
-    repository: "https://charts.bitnami.com/bitnami"
-    condition: mariadb.enabled

@@ -1,12 +1,5 @@
 domain: kanboard.internal.napbiotec.io
 
-#### MariaDB ####
-mariadb:
-  enabled: true
-  auth:
-    database: kanboard
-    existingSecret: kanboard-db-login
-
 #### Kanboard ####
 kanboard:
   enabled: true
@@ -40,32 +33,30 @@ kanboard:
         persistentVolumeClaim:
           claimName: kanboard-plugin
     env:
-      - name: MYSQL_DATABASE
-        value: kanboard
-
-      - name: PLUGIN_INSTALLER
-        value: "true"
-
-      - name: MYSQL_USER
+      - name: MAIL_SMTP_PASSWORD
         valueFrom:
           secretKeyRef:
             name: kanboard-db-login
-            key: mariadb-user
+            key: smtp-password
             optional: false
 
-      - name: MYSQL_ROOT_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: kanboard-db-login
-            key: mariadb-root-password
-            optional: false
+      - name: MAIL_FROM
+        value: "kanboard.webmaster@napbiotec.io"
 
-      - name: MYSQL_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: kanboard-db-login
-            key: mariadb-password
-            optional: false
+      - name: MAIL_SMTP_ENCRYPTION
+        value: "tls"
+
+      - name: MAIL_TRANSPORT
+        value: "smtp"
+
+      - name: MAIL_SMTP_HOSTNAME
+        value: "smtp.gmail.com"
+
+      - name: MAIL_SMTP_PORT
+        value: "465"
+
+      - name: MAIL_SMTP_USERNAME
+        value: "webmaster@napbiotec.io"
 
   ingress:
     enabled: false
