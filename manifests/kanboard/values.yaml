@@ -43,6 +43,9 @@ kanboard:
             key: smtp-password
             optional: false
 
+      - name: MAIL_CONFIGURATION
+        value: "true"
+
       - name: MAIL_FROM
         value: "kanboard.webmaster@napbiotec.io"
 
