@@ -53,10 +53,13 @@ kanboard:
         value: "kanboard.webmaster@napbiotec.io"
 
       - name: MAIL_SMTP_ENCRYPTION
-        value: "tls"
+        value: "ssl" #"tls"
 
       - name: MAIL_TRANSPORT
         value: "smtp"
+
+      - name: MAIL_DRIVER
+        value: smtp
 
       - name: MAIL_SMTP_HOSTNAME
         value: "smtp.gmail.com"
