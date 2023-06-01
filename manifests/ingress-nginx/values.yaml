@@ -6,6 +6,7 @@ domain5: genuine.napbiotec.io
 domain6: genuine-dev.napbiotec.io
 domain7: aldamexthailand.com
 domain8: internal.napbiotec.io
+domain9: youngyoushop.com
 
 backendService: ingress-nginx-production-controller
 backendServiceIap: ingress-nginx-production-ingress-nginx-iap-controller
