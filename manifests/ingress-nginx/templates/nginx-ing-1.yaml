@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: nginx-ing-1
   annotations:
-    networking.gke.io/managed-certificates: managed-cert-youngyou,managed-cert-aldamex-thailand
+    networking.gke.io/managed-certificates: managed-cert-sgl,managed-cert-youngyou,managed-cert-aldamex-thailand
     kubernetes.io/ingress.allow-http: 'true'
     kubernetes.io/ingress.global-static-ip-name: gke-ingress-1
 spec:
@@ -142,6 +142,28 @@ spec:
                 port:
                   number: 443
     - host: '{{ .Values.domain9 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
+
+
+    - host: '*.{{ .Values.domain10 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
+    - host: '{{ .Values.domain10 }}'
       http:
         paths:
           - path: /*
