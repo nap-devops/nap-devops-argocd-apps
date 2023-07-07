@@ -37,6 +37,17 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
+  name: managed-cert-nap
+spec:
+  domains:
+    - 'www.{{ .Values.domain11 }}'
+    - '{{ .Values.domain11 }}'
+---
+# For some reason we are not able to generate cert by Cert Manager
+# This is the workaround, use Goolge Manage Cert instead
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
   name: internal-napbiotec-io-4
 spec:
   domains:

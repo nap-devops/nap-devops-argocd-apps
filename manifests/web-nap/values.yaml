@@ -18,9 +18,9 @@ wordpress:
 
     ingressClassName: nginx
     enabled: true
-    hostname: nap.napbiotec.io
-    #extraHosts:
-    #  - name: www.aldamex.com
+    hostname: natureagroproduct.com
+    extraHosts:
+      - name: www.natureagroproduct.com
 
   service:
     type: ClusterIP

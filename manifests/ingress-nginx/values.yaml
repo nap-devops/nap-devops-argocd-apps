@@ -8,6 +8,7 @@ domain7: aldamexthailand.com
 domain8: internal.napbiotec.io
 domain9: youngyoushop.com
 domain10: siamgreenlegend.com
+domain11: natureagroproduct.com
 
 backendService: ingress-nginx-production-controller
 backendServiceIap: ingress-nginx-production-ingress-nginx-iap-controller
