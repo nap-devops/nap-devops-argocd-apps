@@ -27,10 +27,10 @@ dependencies:
     alias: logstash-syslog
     condition: logstash-syslog.enabled
     repository: "https://helm.elastic.co"
-    version: "7.17.3"
+    version: "8.5.1"
 
   - name: "logstash"
     alias: logstash-http
     condition: logstash-http.enabled
     repository: "https://helm.elastic.co"
-    version: "7.17.3"
+    version: "8.5.1"

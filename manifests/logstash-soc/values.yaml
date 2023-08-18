@@ -4,6 +4,7 @@ hookBackend: logstash-http
 ####### HTTP ############
 logstash-http:
   enabled: true
+  maxUnavailable: 0
   replicas: 1
   antiAffinity: soft
   fullnameOverride: logstash-http 
@@ -97,6 +98,7 @@ logstash-http:
 ####### SYSLOG ############
 logstash-syslog:
   enabled: true
+  maxUnavailable: 0
 
   replicas: 2
   fullnameOverride: logstash-syslog #From Syslog to Kafka
