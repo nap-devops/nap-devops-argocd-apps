@@ -1,5 +1,5 @@
 domain: devops-np.napbiotec.io
-grafanaBackend: loki-log-development-grafana
+grafanaBackend: loki-log-grafana
 
 loki-stack:
   grafana:
