@@ -1,11 +1,11 @@
 apiVersion: v2
-name: helm-loki-log
+name: helm-loki-stack
 version: 1.0.0
 appVersion: 1.23.0
-description: A Helm chart wrapper for Loki Log
+description: A Helm chart wrapper for Loki
 
 dependencies:
-  - name: helm-loki
-    version: "1.1.4"
-    repository: "https://its-software-services-devops.github.io/helm-loki/"
-    condition: helm-loki.enabled
+  - name: loki-stack
+    version: "2.8.4"
+    repository: "https://grafana.github.io/helm-charts"
+    condition: loki-stack.enabled

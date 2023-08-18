@@ -1,9 +1,9 @@
 domain: devops-np.napbiotec.io
 grafanaBackend: loki-log-development-grafana
 
-helm-loki:
-  loki-stack:
-    grafana:
-      grafana.ini:
-        server:
-          root_url: https://grafana-loki.devops-np.napbiotec.io
+loki-stack:
+  grafana:
+    grafana.ini:
+      server:
+        root_url: https://grafana-loki.devops-np.napbiotec.io
+        domain: grafana-loki.devops-np.napbiotec.io

@@ -1,90 +1,43 @@
-domain: devops.napbiotec.io
-grafanaBackend: loki-log-production-grafana
+loki-stack:
+  enabled: true
+  test_pod:
+    enabled: false
+  promtail:
+    fullnameOverride: promtail
+    config:
+      clients:
+        - url: http://loki-log:3100/loki/api/v1/push
+  loki:
+    fullnameOverride: loki-log
+    persistence:
+      enabled: false
+    config:
+    alerting_groups: []
 
-helm-loki:
-  loki-stack:
+  grafana:
     enabled: true
-    fullnameOverride: loki-cluster-logging
+    fullnameOverride: loki-log-grafana
+    envRenderSecret: {}
+    envFromSecret: google-oidc-secret
 
-    loki:
-      image:
-        tag: 2.3.0
-      persistence:
+    image:
+      tag: 8.5.13
+
+    grafana.ini:
+      server:
+        root_url: https://grafana-loki.devops.napbiotec.io
+
+      auth.generic_oauth:
+        name: Google
         enabled: true
-      config:
-        ruler:
-          storage:
-            type: local
-            local:
-              directory: /rules
-          rule_path: /tmp/scratch
-          alertmanager_url: http://alertmanager-main.monitoring.svc.cluster.local:9093
-          ring:
-            kvstore:
-              store: inmemory
-          enable_api: true
-      alerting_groups:
-        - name: generic_alerts
-          rules:
-          - alert: LogstashError
-            expr: |
-              sum (count_over_time({namespace="logstash-soc"} |= "Error" [15m])) > 1
-            for: 5s
-            labels:
-              severity: warning
-            annotations:
-              description: Found  {{ printf "%v" $value }} line(s) of [Error] in [logstash-soc] namespace
-
-          - alert: VectorError
-            expr: |
-              sum (count_over_time({namespace="vector-soc"} |= "ERROR" [15m])) > 1
-            for: 5s
-            labels:
-              severity: warning
-            annotations:
-              description: Found  {{ printf "%v" $value }} line(s) of [Error] in [vector-soc] namespace
-
-          - alert: VeleroBackupError
-            expr: |
-              sum (count_over_time({namespace="velero"} |~ "error|ERROR|Error" [15m])) > 1
-            for: 5s
-            labels:
-              severity: warning
-            annotations:
-              description: Found  {{ printf "%v" $value }} line(s) of [Error] in [velero] namespace
-
-    grafana:
-      envFromSecret: google-oidc-secret
-      envRenderSecret: {}
-
-      image:
-        tag: 8.5.13
-
-      grafana.ini:
-        server:
-          root_url: https://grafana-loki.devops.napbiotec.io
-
-        auth.generic_oauth:
-          name: Google
-          enabled: true
-          allow_sign_up: true
-          team_ids:
-          allowed_organizations:
-          client_id: ${GOOGLE_CLIENT_ID}
-          client_secret: ${GOOGLE_CLIENT_SECRET}
-          scopes: https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
-          auth_url: https://accounts.google.com/o/oauth2/auth
-          token_url: https://accounts.google.com/o/oauth2/token
-          api_url: https://www.googleapis.com/oauth2/v1/userinfo
-          role_attribute_path: to_string('Editor')
-          allowed_domains: napbiotec.io
-
-#  promtail:
-#    enabled: true
-#    fullnameOverride: loki-soc-promtail
-#    config:
-#      clients:
-#        - url: http://loki-soc-gateway.loki-soc.svc.cluster.local/loki/api/v1/push
-
-#    extraArgs:
-#      - -client.external-labels=type=applog
+        allow_sign_up: true
+        team_ids:
+        allowed_organizations:
+        client_id: ${GOOGLE_CLIENT_ID}
+        client_secret: ${GOOGLE_CLIENT_SECRET}
+        scopes: https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
+        auth_url: https://accounts.google.com/o/oauth2/auth
+        token_url: https://accounts.google.com/o/oauth2/token
+        api_url: https://www.googleapis.com/oauth2/v1/userinfo
+        role_attribute_path: to_string('Editor')
+        allowed_domains: napbiotec.io
