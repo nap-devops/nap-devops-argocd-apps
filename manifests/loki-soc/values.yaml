@@ -4,7 +4,9 @@ helm-loki:
   enabled: true
   exposes: {}
 
-  grafana: {}
+  grafana:
+    rbac:
+      pspEnabled: false
 
   promtail:
     enabled: false
@@ -20,6 +22,8 @@ helm-loki:
       replicas: 1 
       image:
         tag: 2.4.0
+      rbac:
+        pspEnabled: false
 
     gateway:
       replicas: 1
