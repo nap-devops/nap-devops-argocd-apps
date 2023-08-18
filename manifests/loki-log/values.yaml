@@ -13,6 +13,8 @@ loki-stack:
       enabled: false
     config:
     alerting_groups: []
+    rbac:
+      pspEnabled: false
 
   grafana:
     enabled: true
