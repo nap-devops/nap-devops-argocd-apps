@@ -19,7 +19,8 @@ loki-stack:
     fullnameOverride: loki-log-grafana
     envRenderSecret: {}
     envFromSecret: google-oidc-secret
-
+    rbac:
+      pspEnabled: 'false'
     image:
       tag: 8.5.13
 
