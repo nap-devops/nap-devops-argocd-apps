@@ -4,7 +4,8 @@ grafana:
   enabled: true
   image:
     tag: "9.1.5"
-
+  rbac:
+    pspEnabled: false
   fullnameOverride: grafana-soc
   envFromSecret: google-oidc-secret
   envFromSecrets:
