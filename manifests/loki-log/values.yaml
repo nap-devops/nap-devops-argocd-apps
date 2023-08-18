@@ -20,7 +20,7 @@ loki-stack:
     envRenderSecret: {}
     envFromSecret: google-oidc-secret
     rbac:
-      pspEnabled: 'false'
+      pspEnabled: false
     image:
       tag: 8.5.13
 
