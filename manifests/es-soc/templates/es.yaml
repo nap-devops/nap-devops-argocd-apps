@@ -5,6 +5,7 @@ metadata:
   name: es-soc
 spec:
   version: 8.3.3
+  podDisruptionBudget: {}
   nodeSets:
   - name: masters
     count: 1
