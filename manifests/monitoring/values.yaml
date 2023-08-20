@@ -7,10 +7,25 @@ kube-prometheus-stack:
       enabled: false
 
   grafana:
-    admin:
-      existingSecret: "grafana-credentials"
-      userKey: GRAFANA_USER
-      passwordKey: GRAFANA_PASSWORD
+    rbac:
+      pspEnabled: false
+    fullnameOverride: grafana-k8s
+    envFromSecret: google-oidc-secret
+
+    auth.generic_oauth:
+      name: Google
+      enabled: true
+      allow_sign_up: true
+      team_ids:
+      allowed_organizations:
+      client_id: ${GOOGLE_CLIENT_ID}
+      client_secret: ${GOOGLE_CLIENT_SECRET}
+      scopes: https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
+      auth_url: https://accounts.google.com/o/oauth2/auth
+      token_url: https://accounts.google.com/o/oauth2/token
+      api_url: https://www.googleapis.com/oauth2/v1/userinfo
+      role_attribute_path: to_string('Editor')
+      allowed_domains: napbiotec.io
 
   alertmanager:
     # To allow AlertManger to be used globally (for all namespace)

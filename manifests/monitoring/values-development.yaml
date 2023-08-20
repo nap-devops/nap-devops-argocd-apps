@@ -1,6 +1,6 @@
-domain: grafana-k8s.dev.chalam-kitchen.com
-domain1: alm.dev.chalam-kitchen.com
-domain2: prom.dev.chalam-kitchen.com
+domain: grafana-k8s.dev.devops.napbiotec.io
+domain1: alm.dev.devops.napbiotec.io
+domain2: prom.dev.devops.napbiotec.io
 
 environment: development
 
@@ -8,8 +8,8 @@ kube-prometheus-stack:
   grafana:
     grafana.ini:
       server:
-        root_url: grafana-k8s.dev.chalam-kitchen.com
+        root_url: grafana-k8s.dev.devops.napbiotec.io
     grafana.ini:
       server:
-        root_url: https://grafana-k8s.dev.chalam-kitchen.com
-        domain: grafana-k8s.dev.chalam-kitchen.com
+        root_url: https://grafana-k8s.dev.devops.napbiotec.io
+        domain: grafana-k8s.dev.devops.napbiotec.io
