@@ -9,6 +9,10 @@ kube-prometheus-stack:
   #kubelet:
   #  enabled: false
 
+  prometheusOperator:
+    kubeletService:
+      enabled: false
+
   grafana:
     rbac:
       pspEnabled: false
