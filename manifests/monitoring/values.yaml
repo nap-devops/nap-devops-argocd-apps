@@ -5,6 +5,8 @@ kube-prometheus-stack:
   prometheus-node-exporter: {}
     #hostRootFsMount:
     #  enabled: false
+  kubelet:
+    enabled: false
 
   grafana:
     rbac:
