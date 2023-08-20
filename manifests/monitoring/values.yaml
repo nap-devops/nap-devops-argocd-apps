@@ -2,9 +2,9 @@ kube-prometheus-stack:
   enabled: true
   fullnameOverride: prometheus
 
-  prometheus-node-exporter:
-    hostRootFsMount:
-      enabled: false
+  prometheus-node-exporter: {}
+    #hostRootFsMount:
+    #  enabled: false
 
   grafana:
     rbac:
