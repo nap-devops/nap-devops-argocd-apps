@@ -5,6 +5,7 @@ helm-loki:
   exposes: {}
 
   grafana:
+    adminPassword: "" #Set random password
     rbac:
       pspEnabled: false
 
