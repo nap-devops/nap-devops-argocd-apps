@@ -90,6 +90,19 @@ spec:
         receiver: null-notifications
         repeatInterval: 4h
         continue: false
+
+      - groupBy:
+          - alertname
+        matchers:
+          - matchType: =~
+            name: alertname
+            value: 'KubeControllerManagerDown|KubeProxyDown|KubeSchedulerDown|NodeClockNotSynchronising'
+        groupInterval: 5m
+        groupWait: 30s
+        receiver: null-notifications
+        repeatInterval: 4h
+        continue: false
+        
       - groupBy:
           - alertname
         matchers:
