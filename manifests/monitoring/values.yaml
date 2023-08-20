@@ -11,6 +11,7 @@ kube-prometheus-stack:
       pspEnabled: false
     fullnameOverride: grafana-k8s
     envFromSecret: google-oidc-secret
+    adminPassword: "" #Set random password
 
     grafana.ini:
       auth.generic_oauth:
