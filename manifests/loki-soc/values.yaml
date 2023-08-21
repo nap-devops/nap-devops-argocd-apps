@@ -68,7 +68,7 @@ helm-loki:
         kvstore:
           store: memberlist
       #rule_path: /rules/alerts
-      alertmanager_url: http://alertmanager-main.monitoring.svc.cluster.local:9093
+      alertmanager_url: http://prometheus-alertmanager.monitoring.svc.cluster.local:9093
       external_url: http://alertmanager.xx
 
     querier:
