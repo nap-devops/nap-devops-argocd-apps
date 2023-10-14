@@ -10,7 +10,11 @@ kube-prometheus-stack:
   #  enabled: false
 
   prometheusOperator:
-    kubeletService:
+    #kubeletService:
+    #  enabled: false
+    tls:
+      enabled: false
+    admissionWebhooks:
       enabled: false
 
   grafana:
