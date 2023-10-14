@@ -98,7 +98,7 @@ spec:
             value: 'TargetDown'
           - matchType: =~
             name: job
-            value: 'coredns'
+            value: 'coredns|kubelet'
         groupInterval: 5m
         groupWait: 30s
         receiver: null-notifications
