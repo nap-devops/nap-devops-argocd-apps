@@ -40,6 +40,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: prometheus-prometheus
+                name: prometheus-prometheus-dummy # Remove '-dummy' when needed
                 port:
                   number: 9090
