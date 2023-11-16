@@ -1,0 +1,5 @@
+domain: phpmyadmin.internal.napbiotec.io
+
+phpmyadmin:
+  enabled: true
+  nameOverride: phpmyadmin

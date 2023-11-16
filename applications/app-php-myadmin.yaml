@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: php-myadmin
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'php-myadmin-{{name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:nap-devops/nap-devops-argocd-apps.git
+        targetRevision: "{{name}}" #Based on environment
+        path: 'manifests/php-myadmin'
+      destination:
+        name: in-cluster
+        namespace: php-myadmin
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
