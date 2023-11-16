@@ -18,6 +18,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: phpmyadmin-production
+                name: php-myadmin-production-phpmyadmin
                 port:
                   number: 443
