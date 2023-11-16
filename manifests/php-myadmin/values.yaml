@@ -1,4 +1,4 @@
-domain: phpmyadmin.internal.napbiotec.io
+domain: temp.internal.napbiotec.io # Will change
 
 phpmyadmin:
   enabled: true
