@@ -30,7 +30,7 @@ wordpress:
     enabled: false
 
   externalDatabase:
-    host: web-sgl-production-mysql
+    host: web-kratomcraft-production-mysql
     port: 3306
     database: wordpress
     user: root
