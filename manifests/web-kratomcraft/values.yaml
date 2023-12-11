@@ -1,0 +1,45 @@
+wordpress:
+  enabled: true
+  replicaCount: 1
+  wordpressScheme: https
+  wordpressUsername: admin
+  existingSecret: 'wordpress-user-login'
+
+  readinessProbe:
+    enabled: false
+
+  #image:
+  #  tag: 6.1.1
+
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 50m
+      kubernetes.io/ingress.allow-http: "true" #Wordpress will redirect to https internally
+
+    ingressClassName: nginx # iap-nginx
+    enabled: true
+
+    hostname: kratomcraft.com
+    extraHosts:
+      - name: www.kratomcraft.com
+
+  service:
+    type: ClusterIP
+
+  mariadb:
+    enabled: false
+
+  externalDatabase:
+    host: web-sgl-production-mysql
+    port: 3306
+    database: wordpress
+    user: root
+    existingSecret: wordpress-db-login
+
+mysql:
+  enabled: true
+  #image:
+  #  tag: 8.0.28
+  auth:
+    database: wordpress
+    existingSecret: wordpress-db-login
