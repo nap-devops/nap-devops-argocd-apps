@@ -59,3 +59,12 @@ spec:
     - 'snipeit.{{ .Values.domain8 }}'
     - 'temp.{{ .Values.domain8 }}'
     - 'kanboard.{{ .Values.domain8 }}'
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert-kratomkraft
+spec:
+  domains:
+    - 'www.{{ .Values.domain12 }}'
+    - '{{ .Values.domain12 }}'
