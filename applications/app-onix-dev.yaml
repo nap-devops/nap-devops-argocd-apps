@@ -16,7 +16,7 @@ spec:
       source:
         repoURL: git@github.com:wintech-thai/onix-argocd-apps.git
         targetRevision: "development"
-        path: ''
+        path: '/'
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
