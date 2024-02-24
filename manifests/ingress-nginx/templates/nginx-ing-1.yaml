@@ -215,7 +215,7 @@ spec:
                 port:
                   number: 443
 
-    - host: '{{ .Values.domain13 }}'
+    - host: '*.{{ .Values.domain13 }}'
       http:
         paths:
           - path: /*
@@ -226,7 +226,7 @@ spec:
                 port:
                   number: 443
 
-    - host: '{{ .Values.domain14 }}'
+    - host: '*.{{ .Values.domain14 }}'
       http:
         paths:
           - path: /*
