@@ -20,12 +20,12 @@ spec:
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
-            - values-dev.yaml
-            - onix-legacy-api/onix-legacy-api-00-values.yaml
-            - onix-legacy-api/onix-legacy-api-01-dev-values.yaml
-            - onix-legacy-api/onix-legacy-api-03-dev-image-tag.yaml
-            - onix-legacy-api/onix-legacy-api-03-dev-image-tag.yaml
-            - postgresql/postgresql-00-values.yaml
+            - values/values-dev.yaml
+            - values/onix-legacy-api/onix-legacy-api-00-values.yaml
+            - values/onix-legacy-api/onix-legacy-api-01-dev-values.yaml
+            - values/onix-legacy-api/onix-legacy-api-03-dev-image-tag.yaml
+            - values/onix-legacy-api/onix-legacy-api-03-dev-image-tag.yaml
+            - values/postgresql/postgresql-00-values.yaml
       destination:
         name: in-cluster
         namespace: onix-dev
