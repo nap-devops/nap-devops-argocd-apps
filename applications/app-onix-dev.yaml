@@ -21,11 +21,16 @@ spec:
           ignoreMissingValueFiles: true
           valueFiles:
             - values/values-dev.yaml
+
             - values/onix-legacy-api/onix-legacy-api-00-values.yaml
             - values/onix-legacy-api/onix-legacy-api-01-dev-values.yaml
             - values/onix-legacy-api/onix-legacy-api-03-dev-image-tag.yaml
-            - values/onix-legacy-api/onix-legacy-api-03-dev-image-tag.yaml
+
             - values/postgresql/postgresql-00-values.yaml
+
+            - values/onix-backup/onix-backup-00-values.yaml
+            - values/onix-backup/onix-backup-01-dev-values.yaml
+            - values/onix-backup/onix-backup-03-dev-image-tag.yaml
       destination:
         name: in-cluster
         namespace: onix-dev
