@@ -68,3 +68,14 @@ spec:
   domains:
     - 'www.{{ .Values.domain12 }}'
     - '{{ .Values.domain12 }}'
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert-kaspa
+spec:
+  domains:
+    - 'www.{{ .Values.domain15 }}'
+    - '{{ .Values.domain15 }}'
+    - 'grpc.{{ .Values.domain15 }}'
+    - 'grpc-dev.{{ .Values.domain15 }}'
