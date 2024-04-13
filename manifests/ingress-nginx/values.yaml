@@ -28,8 +28,8 @@ ingress-nginx:
         cloud.google.com/neg: '{"ingress": true}'
         cloud.google.com/backend-config: '{"default": "nginx-hc-config"}'
         cloud.google.com/app-protocols: '{"https":"HTTPS", "http":"HTTP"}'
-  config:
-    http2-push-preload: "true"
+    config:
+      http2-push-preload: "true"
 
 ingress-nginx-iap:
   enabled: true
