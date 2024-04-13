@@ -16,7 +16,7 @@ spec:
       source:
         repoURL: git@github.com:kaspa-chain/kaspa-deployment.git
         targetRevision: "development"
-        path: '.'
+        path: 'kaspa'
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
