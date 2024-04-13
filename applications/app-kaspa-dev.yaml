@@ -20,9 +20,9 @@ spec:
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
-            - kaspa/values-files/kaspad/kaspad-00-values.yaml
-            - kaspa/values-files/kaspad/kaspad-01-dev-values.yaml
-            - kaspa/values-files/kaspad/kaspad-03-dev-image-tag.yaml
+            - values-files/kaspad/kaspad-00-values.yaml
+            - values-files/kaspad/kaspad-01-dev-values.yaml
+            - values-files/kaspad/kaspad-03-dev-image-tag.yaml
       destination:
         name: in-cluster
         namespace: kaspa-dev
