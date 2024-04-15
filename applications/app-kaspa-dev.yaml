@@ -24,7 +24,7 @@ spec:
             - values-files/kaspad/kaspad-01-dev-values.yaml
             - values-files/kaspad/kaspad-03-dev-image-tag.yaml
 
-            - values-files/postgresql/postgresql-00-values
+            - values-files/postgresql/postgresql-00-values.yaml
 
             - values-files/kaspad-db-filter/kaspad-db-filter-00-values.yaml
             - values-files/kaspad-db-filter/kaspad-db-filter-01-dev-values.yaml
