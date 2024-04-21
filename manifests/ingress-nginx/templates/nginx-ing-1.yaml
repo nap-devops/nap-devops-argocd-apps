@@ -15,7 +15,7 @@ spec:
     - secretName: nginx-cert-napbiotec-com
     - secretName: nginx-cert-genuine-napbiotec-io
     - secretName: nginx-cert-genuine
-    - secretName: nginx-cert-genuine-dev
+    #- secretName: nginx-cert-genuine-dev
     # Checkcode
     - secretName: houston-cert
     - secretName: maplelife-cert
