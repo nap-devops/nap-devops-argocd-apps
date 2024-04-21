@@ -5,8 +5,8 @@ metadata:
 spec:
   secretName: maplelife-cert
   dnsNames:
-    - {{ .Values.domainWordpress3 }}
-    - www.{{ .Values.domainWordpress3 }}
+    - {{ .Values.domain18 }}
+    - www.{{ .Values.domain18 }}
   issuerRef:
     name: lets-encrypt-issuer-http-prod
     kind: ClusterIssuer

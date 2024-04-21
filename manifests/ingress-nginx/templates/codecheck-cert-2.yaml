@@ -5,8 +5,8 @@ metadata:
 spec:
   secretName: houston-cert
   dnsNames:
-    - {{ .Values.domainWordpress2 }}
-    - www.{{ .Values.domainWordpress2 }}
+    - {{ .Values.domain17 }}
+    - www.{{ .Values.domain17 }}
   issuerRef:
     name: lets-encrypt-issuer-http-prod
     kind: ClusterIssuer

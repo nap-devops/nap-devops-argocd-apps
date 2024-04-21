@@ -5,8 +5,8 @@ metadata:
 spec:
   secretName: eagle-cert
   dnsNames:
-    - {{ .Values.domainWordpress1 }}
-    - www.{{ .Values.domainWordpress1 }}
+    - {{ .Values.domain16 }}
+    - www.{{ .Values.domain16 }}
   issuerRef:
     name: lets-encrypt-issuer-http-prod
     kind: ClusterIssuer
