@@ -19,7 +19,7 @@ spec:
     # Checkcode
     - secretName: houston-cert
     - secretName: maplelife-cert
-    #- secretName: eagle-cert
+    - secretName: eagle-cert
   rules:
     - host: '*.{{ .Values.domain }}'
       http:
