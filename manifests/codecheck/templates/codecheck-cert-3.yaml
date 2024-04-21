@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: maplelife-cert
+spec:
+  secretName: maplelife-cert
+  dnsNames:
+    - {{ .Values.domainWordpress3 }}
+    - www.{{ .Values.domainWordpress3 }}
+  issuerRef:
+    name: lets-encrypt-issuer-http-prod
+    kind: ClusterIssuer
+    group: cert-manager.io

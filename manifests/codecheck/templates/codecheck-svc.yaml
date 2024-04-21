@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: codecheck-external-ip
+spec:
+  ports:
+  - name: app
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  clusterIP: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: codecheck-external-ip
+subsets:
+- addresses:
+  - ip: 49.0.64.166
+  ports:
+  - name: app
+    port: 8080
+    protocol: TCP
