@@ -16,6 +16,10 @@ spec:
     - secretName: nginx-cert-genuine-napbiotec-io
     - secretName: nginx-cert-genuine
     - secretName: nginx-cert-genuine-dev
+    # Checkcode
+    - secretName: houston-cert
+    - secretName: maplelife-cert
+    #- secretName: eagle-cert
   rules:
     - host: '*.{{ .Values.domain }}'
       http:
