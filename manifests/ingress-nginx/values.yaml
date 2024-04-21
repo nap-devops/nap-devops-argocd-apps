@@ -13,6 +13,9 @@ domain12: kratomcraft.com
 domain13: acd-np.its-software-services.com
 domain14: acd.its-software-services.com
 domain15: kaspa-chain.net
+domain16: epeaglepharma.com
+domain17: checkcode-houston.com
+domain18: checkcode-maplelifepharma.com
 
 backendService: ingress-nginx-production-controller
 backendServiceIap: ingress-nginx-production-ingress-nginx-iap-controller
