@@ -43,3 +43,12 @@ mysql:
   auth:
     database: wordpress
     existingSecret: wordpress-db-login
+
+  primary:
+    command:
+      - "/opt/bitnami/mysql/bin/mysqld"
+      - "--defaults-file=/opt/bitnami/mysql/conf/my.cnf"
+      - "--basedir=/opt/bitnami/mysql"
+      - "--datadir=/bitnami/mysql/data"
+      - "--socket=/opt/bitnami/mysql/tmp/mysql.sock"
+      - "--pid-file=/opt/bitnami/mysql/tmp/mysqld.pid"
