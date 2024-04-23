@@ -20,9 +20,9 @@ spec:
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
-            - values-files/kaspad/kaspad-00-values.yaml
-            - values-files/kaspad/kaspad-01-dev-values.yaml
-            - values-files/kaspad/kaspad-03-dev-image-tag.yaml
+            - values-files/kaspad-go/kaspad-go-00-values.yaml
+            - values-files/kaspad-go/kaspad-go-01-dev-values.yaml
+            - values-files/kaspad-go/kaspad-go-03-dev-image-tag.yaml
 
             - values-files/kaspad-rust/kaspad-rust-00-values.yaml
             - values-files/kaspad-rust/kaspad-rust-01-dev-values.yaml
