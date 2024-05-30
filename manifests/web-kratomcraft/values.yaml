@@ -1,6 +1,6 @@
 wordpress:
   enabled: true
-  replicaCount: 1
+  replicaCount: 0
   wordpressScheme: https
   wordpressUsername: admin
   existingSecret: 'wordpress-user-login'
