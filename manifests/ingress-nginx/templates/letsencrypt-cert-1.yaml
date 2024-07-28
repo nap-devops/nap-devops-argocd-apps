@@ -11,9 +11,6 @@ spec:
     - www.{{ .Values.domain17 }}
     - {{ .Values.domain18 }}
     - www.{{ .Values.domain18 }}
-    - '*.{{ .Values.domain }}'
-    - '*.{{ .Values.domain5 }}'
-    - '*.{{ .Values.domain6 }}'
   issuerRef:
     name: lets-encrypt-issuer-http-prod
     kind: ClusterIssuer
