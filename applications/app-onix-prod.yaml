@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: onix-prod
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'onix-prod'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:wintech-thai/onix-argocd-apps.git
+        targetRevision: "production"
+        path: '.'
+        helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - values/values-prod.yaml
+
+            - values/onix-legacy-api/onix-legacy-api-00-values.yaml
+            - values/onix-legacy-api/onix-legacy-api-01-prod-values.yaml
+            - values/onix-legacy-api/onix-legacy-api-03-prod-image-tag.yaml
+
+            - values/postgresql/postgresql-00-values.yaml
+
+            - values/onix-backup/onix-backup-00-values.yaml
+            - values/onix-backup/onix-backup-01-prod-values.yaml
+            - values/onix-backup/onix-backup-03-prod-image-tag.yaml
+      destination:
+        name: in-cluster
+        namespace: onix-prod
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
