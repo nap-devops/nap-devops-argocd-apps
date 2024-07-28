@@ -5,6 +5,7 @@ metadata:
 spec:
   secretName: letsencrypt-cert-1
   dnsNames:
+    # Checkcode
     - {{ .Values.domain16 }}
     - www.{{ .Values.domain16 }}
     - {{ .Values.domain17 }}
