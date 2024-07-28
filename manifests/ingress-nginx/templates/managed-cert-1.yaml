@@ -23,7 +23,7 @@ spec:
     - 'snipeit.{{ .Values.domain8 }}'
     - 'temp.{{ .Values.domain8 }}'
     - 'kanboard.{{ .Values.domain8 }}'
-     - 'www.{{ .Values.domain12 }}'
+    - 'www.{{ .Values.domain12 }}'
     - '{{ .Values.domain12 }}'
     - 'www.{{ .Values.domain15 }}'
     - '{{ .Values.domain15 }}'
