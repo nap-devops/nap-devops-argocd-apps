@@ -1,6 +1,7 @@
 domain: keycloak.devops.napbiotec.io
 
 keycloak:
+  enabled: false
   extraEnv: |
     - name: KEYCLOAK_LOGLEVEL
       value: DEBUG
