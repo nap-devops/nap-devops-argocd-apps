@@ -4,7 +4,7 @@
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
-  name: managed-cert-2
+  name: managed-cert-3
 spec:
   domains:
     - 'www.{{ .Values.domain7 }}'
