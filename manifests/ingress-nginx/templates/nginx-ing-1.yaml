@@ -12,16 +12,6 @@ spec:
     - secretName: letsencrypt-cert-1
     - secretName: letsencrypt-cert-2
     - secretName: letsencrypt-cert-3
-
-    - secretName: nginx-cert
-    - secretName: nginx-cert-admx
-    - secretName: nginx-cert-napbiotec
-    - secretName: nginx-cert-napbiotec-com
-    
-    # Checkcode
-    - secretName: houston-cert
-    - secretName: maplelife-cert
-    - secretName: eagle-cert
   rules:
     - host: '*.{{ .Values.domain }}'
       http:
