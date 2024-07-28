@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-cert-2
+spec:
+  secretName: letsencrypt-cert-2
+  dnsNames:
+    - '{{ .Values.domain2 }}'
+    - '*.{{ .Values.domain2 }}'
+    - '{{ .Values.domain3 }}'
+    - '*.{{ .Values.domain3 }}'
+    - '{{ .Values.domain4 }}'
+    - '*.{{ .Values.domain4 }}'
+  issuerRef:
+    name: lets-encrypt-issuer-top-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
