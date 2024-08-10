@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: please-scan-prod
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'please-scan-prod'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:wintech-thai/please-scan-argocd-apps.git
+        targetRevision: "production"
+        path: '.'
+        helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - values/values-production.yaml
+
+            - values/please-scan-api/please-scan-api-00-values.yaml
+            - values/please-scan-api/please-scan-api-01-production-values.yaml
+            - values/please-scan-api/please-scan-api-03-production-image-tag.yaml
+
+            - values/postgresql/postgresql-00-values.yaml
+      destination:
+        name: in-cluster
+        namespace: please-scan-prod
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
