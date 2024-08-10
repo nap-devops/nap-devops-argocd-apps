@@ -192,18 +192,6 @@ logstash-syslog:
           path => "/scripts/filter.rb"
           script_params => {}
         }
-
-        clone {
-          # Create field name 'type' = es
-          clones => ["es"]
-        }
-
-        if [type] == "es" {
-          prune {
-            interpolate => true
-            whitelist_names => [ "type", "metrics", "@timestamp" ]
-          }          
-        }
       }
 
       output {
@@ -232,23 +220,6 @@ logstash-syslog:
               "src_net"
             ]
             url => "http://loki-soc-gateway.loki-soc.svc.cluster.local/loki/api/v1/push"
-          }
-        } 
-
-        if [type] == "es" {
-          elasticsearch {
-            hosts => [ "https://es-soc-es-http.es-soc.svc.cluster.local:9200" ]
-            ssl_certificate_verification => false
-            user => "${ES_USER}"
-            password => "${ES_PASSWORD}"
-            action => "create"
-
-            ecs_compatibility => "v8"
-            http_compression => "true"
-
-            index => "syslog-events-%{[metrics][evt_ts_yyyy]}%{[metrics][evt_ts_mm]}%{[metrics][evt_ts_dd]}"
-            template_name => "syslog-events"
-            template_overwrite => "true"
           }
         }
       }
