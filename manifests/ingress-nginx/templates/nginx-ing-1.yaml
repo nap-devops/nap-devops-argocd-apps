@@ -339,3 +339,26 @@ spec:
                 name: {{ .Values.backendService }}
                 port:
                   number: 443
+
+    ### please-scan.com
+    - host: '{{ .Values.domain21 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
+
+    - host: '*.{{ .Values.domain21 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
