@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ads-api-dev
+  name: ads-dev
 spec:
   generators:
   - clusters:
@@ -10,7 +10,7 @@ spec:
           custom: "true"
   template:
     metadata:
-      name: 'ads-api-dev'
+      name: 'ads-dev'
     spec:
       project: "default"
       source:
@@ -29,7 +29,7 @@ spec:
             - values/postgresql/postgresql-00-values.yaml
       destination:
         name: in-cluster
-        namespace: ads-api-dev
+        namespace: ads-dev
       syncPolicy:
         automated:
           selfHeal: true
