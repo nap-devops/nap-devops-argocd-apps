@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: ads-api-dev
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'ads-api-dev'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:rtaf-soc/rtarf-ads-argocd-apps.git
+        targetRevision: "development"
+        path: '.'
+        helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - values/values-development.yaml
+
+            - values/ads-api/ads-api-00-values.yaml
+            - values/ads-api/ads-api-01-development-values.yaml
+            - values/ads-api/ads-api-03-development-image-tag.yaml
+
+            - values/postgresql/postgresql-00-values.yaml
+      destination:
+        name: in-cluster
+        namespace: ads-api-dev
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
