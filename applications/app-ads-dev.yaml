@@ -26,6 +26,8 @@ spec:
             - values/ads-api/ads-api-01-development-values.yaml
             - values/ads-api/ads-api-03-development-image-tag.yaml
 
+            - values/ads-jobs/ads-jobs-03-development-image-tag.yaml
+
             - values/postgresql/postgresql-00-values.yaml
             - values/redis/redis-00-values.yaml
       destination:
