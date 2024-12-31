@@ -16,7 +16,7 @@ spec:
       source:
         repoURL: https://github.com/rtaf-soc/nap-devops-argocd-apps.git
         targetRevision: "{{name}}" #Based on environment
-        path: '03-argocd-apps/manifests/discord-alm'
+        path: 'manifests/discord-alm'
       destination:
         name: in-cluster
         namespace: discord-alm
