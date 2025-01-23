@@ -1,0 +1,8 @@
+domain: uptime-kuma.internal.napbiotec.io
+
+uptime-kuma:
+  enabled: true
+  nameOverride: uptime-kuma
+
+  ingress:
+    enabled: false
