@@ -3,18 +3,22 @@ kind: Ingress
 metadata:
   name: uptime-kuma-ing
   annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP  
     nginx.ingress.kubernetes.io/proxy-body-size: 50m
     nginx.org/client-max-body-size: 50m
 spec:
   ingressClassName: iap-nginx
+  tls:
+    - hosts:
+      - {{ .Values.domain }}
   rules:
-  - host: "{{ .Values.domain }}"
-    http:
-      paths:
-      - pathType: ImplementationSpecific
-        path: "/"
-        backend:
-          service:
-            name: uptime-kuma-production
-            port:
-              number: 3001
+    - host: {{ .Values.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: snipeit-production
+                port:
+                  number: 80
