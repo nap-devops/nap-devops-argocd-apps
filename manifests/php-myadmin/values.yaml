@@ -1,5 +1,5 @@
 domain: temp.internal.napbiotec.io # Will change
 
 phpmyadmin:
-  enabled: false
+  enabled: true
   nameOverride: phpmyadmin
