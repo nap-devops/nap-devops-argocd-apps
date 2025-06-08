@@ -9,7 +9,7 @@ logstash-http:
   antiAffinity: soft
   fullnameOverride: logstash-http 
   image: asia-southeast1-docker.pkg.dev/its-artifact-commons/utils/logstash
-  imageTag: develop-a86cdd4
+  imageTag: develop-6ce7934
 
   extraEnvs:
     - name: DUMMY_FOR_RESTART #If need to restart pod manually then change this
@@ -103,7 +103,7 @@ logstash-syslog:
   replicas: 2
   fullnameOverride: logstash-syslog #From Syslog to Kafka
   image: asia-southeast1-docker.pkg.dev/its-artifact-commons/utils/logstash #"grafana/logstash-output-loki" 
-  imageTag: develop-a86cdd4 #v1.1.1
+  imageTag: develop-6ce7934 #v1.1.1
 
   service:
     type: LoadBalancer
