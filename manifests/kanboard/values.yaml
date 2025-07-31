@@ -2,7 +2,7 @@ domain: kanboard.internal.napbiotec.io
 
 #### Kanboard ####
 kanboard:
-  enabled: true
+  enabled: false
   nameOverride: kanboard
   podDisruptionBudget:
     enabled: false
