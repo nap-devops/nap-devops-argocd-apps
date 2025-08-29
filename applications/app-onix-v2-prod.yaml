@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: onix-v2-prod
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'onix-v2-prod'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://github.com/wintech-thai/onix-v2-argocd-apps.git
+        targetRevision: "production" #Based on environment
+        path: '.'
+        helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - values-files/values-production.yaml
+
+            # Kong
+            - values-files/kong/kong-00-values.yaml
+            # PostgreSQL
+            - values-files/postgresql/postgresql-00-values.yaml
+            # Redis
+            - values-files/redis/redis-00-values.yaml
+
+            # Onix-API
+            - values-files/onix-api/onix-api-00-values.yaml
+            - values-files/onix-api/onix-api-01-production-values.yaml
+            - values-files/onix-api/onix-api-03-production-image-tag.yaml
+      destination:
+        name: in-cluster
+        namespace: onix-v2-production
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
