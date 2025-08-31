@@ -36,8 +36,8 @@ spec:
 
             # Onix-Jobs
             - values-files/onix-jobs/onix-jobs-00-values.yaml
-            - values-files/onix-jobs/onix-jobs-01-development-values.yaml
-            - values-files/onix-jobs/onix-jobs-03-development-image-tag.yaml
+            - values-files/onix-jobs/onix-jobs-01-production-values.yaml
+            - values-files/onix-jobs/onix-jobs-03-production-image-tag.yaml
       destination:
         name: in-cluster
         namespace: onix-v2-production
