@@ -38,6 +38,11 @@ spec:
             - values-files/onix-jobs/onix-jobs-00-values.yaml
             - values-files/onix-jobs/onix-jobs-01-development-values.yaml
             - values-files/onix-jobs/onix-jobs-03-development-image-tag.yaml
+
+            # Onix-Web-Scan
+            - values-files/onix-web-scan/onix-web-scan-00-values.yaml
+            - values-files/onix-web-scan/onix-web-scan-01-development-values.yaml
+            - values-files/onix-web-scan/onix-web-scan-03-development-image-tag.yaml
       destination:
         name: in-cluster
         namespace: onix-v2-development
