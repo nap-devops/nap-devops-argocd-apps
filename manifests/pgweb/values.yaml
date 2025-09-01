@@ -1,0 +1,8 @@
+domain: temp.internal.napbiotec.io # Will change
+
+### PG Web ###
+pgweb:
+  enabled: true
+  nameOverride: pgweb
+  ingress:
+    enabled: false
