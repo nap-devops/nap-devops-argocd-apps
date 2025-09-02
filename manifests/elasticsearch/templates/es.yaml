@@ -1,0 +1,91 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: es-analytic
+spec:
+  version: 8.12.2
+  podDisruptionBudget: {}
+  nodeSets:
+  - name: masters
+    count: 1
+    podTemplate:
+      spec:
+        initContainers:
+        - name: sysctl
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          command: ['sh', '-c', 'sysctl -w vm.max_map_count=262144']
+    config:
+      node.store.allow_mmap: true
+      node.roles: ["master"]
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data # Do not change this name unless you set up a volume mount for the data path.
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: standard
+  - name: data
+    count: 1
+    podTemplate:
+      spec:
+        containers:
+        - name: elasticsearch
+          resources:
+            requests:
+              memory: 2Gi
+            limits:
+              memory: 4Gi
+        initContainers:
+        - name: sysctl
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          command: ['sh', '-c', 'sysctl -w vm.max_map_count=262144']
+    config:
+      node.store.allow_mmap: true
+      node.roles: ["data"]
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data # Do not change this name unless you set up a volume mount for the data path.
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 300Gi
+        storageClassName: standard
+  #auth:
+  #  fileRealm:
+  #  - secretName: es-analytic-basic-authen
+---
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: es-analytic
+spec:
+  version: 8.12.2
+  count: 1
+  elasticsearchRef:
+    name: es-analytic
+  config:
+    monitoring.ui.ccs.enabled: false
+    xpack.reporting.queue.timeout: 600000        # เพิ่ม timeout เป็น 10 นาที
+    xpack.task_manager.max_workers: 20           # เพิ่ม worker ให้ทำงานได้มากขึ้น
+    xpack.task_manager.poll_interval: 3000       # ลดเวลารอ polling เหลือ 3 วินาที
+  podTemplate:
+    spec:
+      containers:
+      - name: kibana
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 0.5
+          limits:
+            memory: 2.5Gi
+            cpu: 2
