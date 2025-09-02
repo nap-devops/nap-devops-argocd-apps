@@ -3,7 +3,7 @@ hookBackend: logstash-http
 
 ####### HTTP ############
 logstash-http:
-  enabled: false
+  enabled: true
   maxUnavailable: 0
   replicas: 1
   antiAffinity: soft
