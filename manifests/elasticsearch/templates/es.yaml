@@ -60,9 +60,9 @@ spec:
           requests:
             storage: 300Gi
         storageClassName: standard
-  #auth:
-  #  fileRealm:
-  #  - secretName: es-analytic-basic-authen
+  auth:
+    fileRealm:
+    - secretName: es-secret
 ---
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
