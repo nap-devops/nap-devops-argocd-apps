@@ -43,6 +43,11 @@ spec:
             - values-files/onix-web-scan/onix-web-scan-00-values.yaml
             - values-files/onix-web-scan/onix-web-scan-01-production-values.yaml
             - values-files/onix-web-scan/onix-web-scan-03-production-image-tag.yaml
+
+            # Please-Scan-Web
+            - values-files/please-scan-web/please-scan-web-00-values.yaml
+            - values-files/please-scan-web/please-scan-web-01-production-values.yaml
+            - values-files/please-scan-web/please-scan-web-03-production-image-tag.yaml
       destination:
         name: in-cluster
         namespace: onix-v2-production
