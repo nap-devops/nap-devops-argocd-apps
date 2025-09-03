@@ -11,6 +11,13 @@ spec:
     count: 1
     podTemplate:
       spec:
+        containers:
+        - name: elasticsearch
+          resources:
+            requests:
+              memory: 512Mi
+            limits:
+              memory: 1024Mi
         initContainers:
         - name: sysctl
           securityContext:
