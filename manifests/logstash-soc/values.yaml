@@ -79,9 +79,9 @@ logstash-http:
           script_params => {}
         }
 
-        #geoip {
-        #  source => "[data][clientIp]"
-        #}
+        geoip {
+          source => "[ClientIp]"
+        }
       }
 
       output {
