@@ -33,6 +33,8 @@ def populate_ts_aggregate(event)
 end
 
 def filter(event)
+    event.remove("headers")
+
     populate_ts_aggregate(event)
     ts = event.get('@timestamp')
     
