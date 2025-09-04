@@ -15,10 +15,10 @@ spec:
         - name: elasticsearch
           resources:
             requests:
-              cpu: "500m"
+              cpu: "1.5"
               memory: 1Gi
             limits:
-              cpu: "500m"
+              cpu: "1.5"
               memory: 1Gi
         initContainers:
         - name: sysctl
@@ -47,10 +47,10 @@ spec:
         - name: elasticsearch
           resources:
             requests:
-              cpu: "500m"
+              cpu: "1.5"
               memory: 2Gi
             limits:
-              cpu: "500m"
+              cpu: "1.5"
               memory: 2Gi
         initContainers:
         - name: sysctl
