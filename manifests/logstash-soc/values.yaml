@@ -90,7 +90,7 @@ logstash-http:
       }
 
       output {
-        #stdout { codec => json_lines }
+        stdout { codec => json_lines }
 
         elasticsearch {
           hosts => [ "https://es-analytic-es-http.elasticsearch.svc.cluster.local:9200" ]
