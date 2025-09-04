@@ -34,6 +34,7 @@ end
 
 def filter(event)
     populate_ts_aggregate(event)
+    ts = event.get('@timestamp')
     
     cust_ts_yyyy = event.get('cust_ts_yyyy')
     cust_ts_mm = event.get('cust_ts_mm')
@@ -43,6 +44,7 @@ def filter(event)
 
     full_index_name = "onix-v2-#{cust_ts_yyyy}-#{cust_ts_mm}-#{cust_ts_dd}"
     event.set('index_name', full_index_name)
+    event.set('@timestamp', ts)
 
     return [event]
 end
