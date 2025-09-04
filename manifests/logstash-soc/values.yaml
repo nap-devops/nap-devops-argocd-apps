@@ -85,7 +85,7 @@ logstash-http:
 
         prune {
           interpolate => true
-          whitelist_names => [ "type", "@timestamp", "data", "geo" ]
+          whitelist_names => [ "type", "index_name", "@timestamp", "data", "geo" ]
         }
       }
 
