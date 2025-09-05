@@ -1,0 +1,22 @@
+PUT _index_template/onix-v2-template
+{
+  "index_patterns": ["onix-v2-*"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "message": {
+          "type": "object",
+          "enabled": false
+        }
+      }
+    },
+    "settings": {
+      "number_of_shards": 1,
+      "refresh_interval" : "30s",
+      "codec": "best_compression",
+      "number_of_replicas" : 0,
+      "auto_expand_replicas": false
+    }
+  },
+  "priority": 0
+}

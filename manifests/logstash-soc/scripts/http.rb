@@ -32,12 +32,32 @@ def populate_ts_aggregate(event)
     event.set('cust_ts_wd', dtm.wday.to_s.rjust(2,'0'))
 end
 
+def extract_common_fields(event)
+    path = event.get("Path")
+    obj = Hash.new
+
+    if path =~ %r{^/org/([^/]+)/(VerifyScanItem|Verify)/([^/]+)/([^/]+)}
+        obj['OrgId'] = $1
+        obj['ApiName'] = $2
+        obj['Serial'] = $3
+        obj['Pin'] = $4
+        obj['Controller'] = "ScanItem"
+    elsif path =~ %r{^/api/([^/]+)/org/([^/]+)/action/([^/]+)}
+        obj['Controller'] = $1
+        obj['OrgId'] = $2
+        obj['ApiName'] = $3
+    end
+
+    event.set('api', obj)
+end
+
 def filter(event)
     event.remove("headers")
 
     populate_ts_aggregate(event)
-    ts = event.get('@timestamp')
+    extract_common_fields(event)
     
+    ts = event.get('@timestamp')
     cust_ts_yyyy = event.get('cust_ts_yyyy')
     cust_ts_mm = event.get('cust_ts_mm')
     cust_ts_dd = event.get('cust_ts_dd')
