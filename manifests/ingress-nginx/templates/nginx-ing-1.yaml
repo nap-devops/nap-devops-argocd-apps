@@ -362,3 +362,26 @@ spec:
                 name: {{ .Values.backendService }}
                 port:
                   number: 443
+
+    ### dev-hubs.com
+    - host: '{{ .Values.domain22 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
+
+    - host: '*.{{ .Values.domain22 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
