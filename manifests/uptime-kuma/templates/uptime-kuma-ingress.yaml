@@ -6,6 +6,10 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
     nginx.ingress.kubernetes.io/proxy-body-size: 50m
     nginx.org/client-max-body-size: 50m
+
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-next-upstream-timeout: "3600"
 spec:
   ingressClassName: nginx
   tls:
