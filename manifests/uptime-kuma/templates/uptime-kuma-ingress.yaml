@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 50m
     nginx.org/client-max-body-size: 50m
 spec:
-  ingressClassName: iap-nginx
+  ingressClassName: nginx
   tls:
     - hosts:
       - {{ .Values.domain }}
