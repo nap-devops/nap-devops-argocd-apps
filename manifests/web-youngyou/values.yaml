@@ -8,8 +8,9 @@ wordpress:
   readinessProbe:
     enabled: false
 
-  #image:
-  #  tag: 6.1.1
+  image:
+    repository: bitnamilegacy/wordpress
+    # tag: 6.1.1
 
   ingress:
     annotations:
@@ -38,8 +39,9 @@ wordpress:
 
 mysql:
   enabled: true
-  #image:
-  #  tag: 8.0.28
+  image:
+    repository: bitnamilegacy/mysql
+    #tag: 8.0.28
   auth:
     database: wordpress
     existingSecret: wordpress-db-login

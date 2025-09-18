@@ -10,6 +10,7 @@ wordpress:
 
   image:
     tag: 6.1.1
+    repository: bitnamilegacy/wordpress
 
   ingress:
     annotations:
@@ -43,6 +44,7 @@ mysql:
   enabled: true
   image:
     tag: 8.0.28
+    repository: bitnamilegacy/mysql
   auth:
     database: wordpress
     existingSecret: wordpress-db-login

@@ -7,7 +7,8 @@ wordpress:
 
   image:
     tag: 6.1.1
-
+    repository: bitnamilegacy/wordpress
+    
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/proxy-body-size: 50m
@@ -35,8 +36,9 @@ wordpress:
 
 mysql:
   enabled: true
-  #image:
-  #  tag: 8.0.28
+  image:
+    repository: bitnamilegacy/mysql
+    #tag: 8.0.28
   auth:
     database: wordpress
     existingSecret: wordpress-db-login
