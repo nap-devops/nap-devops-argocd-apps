@@ -3,6 +3,7 @@ kind: BackendConfig
 metadata:
   name: nginx-hc-config
 spec:
+  timeoutSec: 3600
   healthCheck:
     checkIntervalSec: 30
     port: 443
