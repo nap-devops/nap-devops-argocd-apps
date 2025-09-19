@@ -36,7 +36,7 @@ def extract_common_fields(event)
     path = event.get("Path")
     obj = Hash.new
 
-    if path =~ %r{^/org/([^/]+)/(.+)/([^/]+)/([^/]+)}
+    if path =~ %r{^/org/([^/]+)/([^/]+)/([^/]+)/([^/]+)}
         obj['OrgId'] = $1
         obj['ApiName'] = $2
         obj['Serial'] = $3
