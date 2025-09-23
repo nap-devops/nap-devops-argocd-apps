@@ -1,4 +1,5 @@
 domain: uptime.dev-hubs.com
+domain2: uptime.please-scan.com
 
 uptime-kuma:
   enabled: true
