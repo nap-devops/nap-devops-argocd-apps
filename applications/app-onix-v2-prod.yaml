@@ -34,6 +34,11 @@ spec:
             - values-files/onix-api/onix-api-01-production-values.yaml
             - values-files/onix-api/onix-api-03-production-image-tag.yaml
 
+            # Onix-Console
+            - values-files/onix-console/onix-console-00-values.yaml
+            - values-files/onix-console/onix-console-01-production-values.yaml
+            - values-files/onix-console/onix-console-03-production-image-tag.yaml
+
             # Onix-Jobs
             - values-files/onix-jobs/onix-jobs-00-values.yaml
             - values-files/onix-jobs/onix-jobs-01-production-values.yaml
