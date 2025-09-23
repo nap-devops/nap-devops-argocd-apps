@@ -12,10 +12,10 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-next-upstream-timeout: "3600"
 
     # ซ่อน header ของ Kuma ออกไป
-    #nginx.ingress.kubernetes.io/server-snippet: |
-    #  proxy_hide_header X-Frame-Options;
-    #  proxy_hide_header Content-Security-Policy;
-    #  add_header Content-Security-Policy "frame-ancestors *" always;
+    nginx.ingress.kubernetes.io/server-snippet: |
+      proxy_hide_header X-Frame-Options;
+      proxy_hide_header Content-Security-Policy;
+      add_header Content-Security-Policy "frame-ancestors *" always;
 spec:
   ingressClassName: nginx
   tls:
