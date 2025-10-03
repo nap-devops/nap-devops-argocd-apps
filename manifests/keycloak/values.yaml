@@ -27,3 +27,5 @@ keycloak:
       size: 20Gi
     image:
       repository: bitnamilegacy/postgresql
+      tag: "11.14.0"
+
