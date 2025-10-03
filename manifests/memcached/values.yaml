@@ -2,4 +2,4 @@ memcached:
   enabled: true
   fullnameOverride: memcached
   image:
-    repository: bitnamilegacy/postgresql
+    repository: bitnamilegacy/memcached

@@ -4,4 +4,4 @@ phpmyadmin:
   enabled: true
   nameOverride: phpmyadmin
   image:
-    repository: bitnamilegacy/postgresql
+    repository: bitnamilegacy/phpmyadmin
