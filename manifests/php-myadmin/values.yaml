@@ -3,3 +3,5 @@ domain: temp.internal.napbiotec.io # Will change
 phpmyadmin:
   enabled: true
   nameOverride: phpmyadmin
+  image:
+    repository: bitnamilegacy/postgresql
