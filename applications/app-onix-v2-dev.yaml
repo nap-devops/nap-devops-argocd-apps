@@ -39,6 +39,11 @@ spec:
             - values-files/onix-console/onix-console-01-development-values.yaml
             - values-files/onix-console/onix-console-03-development-image-tag.yaml
 
+            # Onix-Register
+            - values-files/onix-register/onix-register-00-values.yaml
+            - values-files/onix-register/onix-register-01-development-values.yaml
+            - values-files/onix-register/onix-register-03-development-image-tag.yaml
+
             # Onix-Jobs
             - values-files/onix-jobs/onix-jobs-00-values.yaml
             - values-files/onix-jobs/onix-jobs-01-development-values.yaml
