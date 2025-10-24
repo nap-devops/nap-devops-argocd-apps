@@ -9,3 +9,5 @@ spec:
     port: 443
     type: HTTPS
     requestPath: /healthz
+  cdn:
+    enabled: true
