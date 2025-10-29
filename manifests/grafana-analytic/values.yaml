@@ -1,0 +1,104 @@
+domain: grafana.dev-hubs.com
+
+grafana:
+  enabled: true
+
+  securityContext:
+    runAsUser: 472
+    runAsGroup: 472
+    fsGroup: 472
+
+  extraInitContainers:
+    - name: fix-permissions
+      image: busybox
+      command:
+        - sh
+        - -c
+        - |
+          mkdir -p /var/lib/grafana/pdf /var/lib/grafana/png /var/lib/grafana/csv
+          chown -R 472:472 /var/lib/grafana/pdf /var/lib/grafana/png /var/lib/grafana/csv
+      volumeMounts:
+        - name: storage
+          mountPath: /var/lib/grafana
+
+  persistence:
+    enabled: true
+    type: pvc
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+
+  #admin:
+  #  existingSecret: "grafana-credentials"
+  #  userKey: GRAFANA_USER
+  #  passwordKey: GRAFANA_PASSWORD
+
+  fullnameOverride: grafana
+  envFromSecret: google-oidc-secret
+  envFromSecrets:
+    - name: es-secret
+      optional: false
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - name: ES-ONIX-V2
+        type: elasticsearch
+        access: Server
+        url: https://es-analytic-es-http.elasticsearch.svc.cluster.local:9200
+        basicAuth: true
+        basicAuthUser: ${username}
+        database: "onix-v2-*"
+        jsonData:
+          interval: null
+          timeField: '@timestamp'
+          esVersion: '8.0.0'
+          tlsSkipVerify: true
+          tlsAuthWithCACert: false
+          timeout: "3600" #60 min          
+        secureJsonData:
+          basicAuthPassword: ${password}
+
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+      - name: 'Please-Scan'
+        orgId: 1
+        folder: 'Please-Scan'
+        folderUid: ''
+        type: file
+        options:
+         path: /var/lib/grafana/dashboards
+
+  #dashboardsConfigMaps:
+  #  cm-log-summary-1: cm-log-summary-1
+    #cm-overview: cm-overview
+    #endpoint-activities: endpoint-activities
+
+  grafana.ini:
+    #feature_toggles:
+    #  enable: disableEnvelopeEncryption
+    log:
+      level: debug
+    server:
+      root_url: https://grafana.dev-hubs.com
+      domain: grafana.dev-hubs.com
+    auth.ldap: 
+      enabled: true
+
+    auth.generic_oauth:
+      name: Google
+      enabled: true
+      allow_sign_up: true
+      team_ids:
+      allowed_organizations:
+      client_id: ${GOOGLE_CLIENT_ID}
+      client_secret: ${GOOGLE_CLIENT_SECRET}
+      scopes: https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
+      auth_url: https://accounts.google.com/o/oauth2/auth
+      token_url: https://accounts.google.com/o/oauth2/token
+      api_url: https://www.googleapis.com/oauth2/v1/userinfo
+      role_attribute_path: to_string('Editor')
+      allowed_domains: napbiotec.io

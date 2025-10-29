@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: grafana-analytic
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'grafana-analytic-{{name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:nap-devops/nap-devops-argocd-apps.git
+        targetRevision: "{{name}}" #Based on environment
+        path: 'manifests/grafana-analytic'
+        helm:
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - values.yaml
+            - values-{{name}}.yaml
+      destination:
+        name: in-cluster
+        namespace: grafana-analytic
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
