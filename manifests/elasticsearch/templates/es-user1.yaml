@@ -1,0 +1,30 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: es-user1
+spec:
+  refreshInterval: 1h          # rate SecretManager pulls GCPSM
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: gcp-secret-store     # name of the SecretStore (or kind specified)
+  target:
+    name: es-user1  # name of the k8s Secret to be created
+    creationPolicy: Owner
+  data:
+    - secretKey: "username"
+      remoteRef:
+        key: onix-v2-es-authen
+        version: latest
+        property: ES_USER
+
+    - secretKey: "password"
+      remoteRef:
+        key: onix-v2-es-authen
+        version: latest
+        property: ES_PASSWORD
+
+    - secretKey: "roles"
+      remoteRef:
+        key: onix-v2-es-authen
+        version: latest
+        property: ES_ROLE

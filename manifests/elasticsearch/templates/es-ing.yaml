@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: es-ing
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+    - hosts:
+      - {{ .Values.domainEs }}
+  rules:
+    - host: {{ .Values.domainEs }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: es-analytic-es-http
+                port:
+                  number: 9200
