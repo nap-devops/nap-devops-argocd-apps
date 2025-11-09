@@ -116,7 +116,7 @@ logstash-syslog:
   replicas: 2
   fullnameOverride: logstash-syslog #From Syslog to Kafka
   image: asia-southeast1-docker.pkg.dev/its-artifact-commons/utils/logstash #"grafana/logstash-output-loki" 
-  imageTag: develop-6ce7934 #v1.1.1
+  imageTag: v8.15.1-3
 
   service:
     type: LoadBalancer
