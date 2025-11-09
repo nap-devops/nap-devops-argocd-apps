@@ -9,7 +9,7 @@ logstash-http:
   antiAffinity: soft
   fullnameOverride: logstash-http 
   image: asia-southeast1-docker.pkg.dev/its-artifact-commons/utils/logstash
-  imageTag: v8.15.1-2
+  imageTag: v8.15.1-3
 
   extraEnvs:
     - name: DUMMY_FOR_RESTART #If need to restart pod manually then change this
