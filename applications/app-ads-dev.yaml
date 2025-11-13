@@ -30,6 +30,10 @@ spec:
             - values/ads-web/ads-web-01-development-values.yaml
             - values/ads-web/ads-web-03-development-image-tag.yaml
 
+            - values/ads-analytic-web/ads-analytic-web-00-values.yaml
+            - values/ads-analytic-web/ads-analytic-web-01-development-values.yaml
+            - values/ads-analytic-web/ads-analytic-web-03-development-image-tag.yaml
+
             - values/ads-bn/ads-bn-00-values.yaml
             - values/ads-bn/ads-bn-01-development-values.yaml
             - values/ads-bn/ads-bn-03-development-image-tag.yaml
