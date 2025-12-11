@@ -39,6 +39,11 @@ spec:
             - values-files/onix-console/onix-console-01-production-values.yaml
             - values-files/onix-console/onix-console-03-production-image-tag.yaml
 
+            # Onix-Member
+            - values-files/onix-member/onix-member-00-values.yaml
+            - values-files/onix-member/onix-member-01-production-values.yaml
+            - values-files/onix-member/onix-member-03-production-image-tag.yaml
+
             # Onix-Admin
             - values-files/onix-admin/onix-admin-00-values.yaml
             - values-files/onix-admin/onix-admin-01-production-values.yaml
