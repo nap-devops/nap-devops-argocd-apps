@@ -25,6 +25,11 @@ loki-stack:
       pspEnabled: false
     image:
       tag: 8.5.13
+    
+    admin:
+      existingSecret: "grafana-credentials"
+      userKey: GRAFANA_USER
+      passwordKey: GRAFANA_PASSWORD
 
     grafana.ini:
       server:
