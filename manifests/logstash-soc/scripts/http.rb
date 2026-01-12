@@ -43,6 +43,17 @@ def extract_common_fields(event)
         obj['Pin'] = $4
         obj['Controller'] = "ScanItem"
     elsif path =~ %r{^/api/([^/]+)/org/([^/]+)/action/([^/]+)}
+        obj['ApiGroup'] = 'User'
+        obj['Controller'] = $1
+        obj['OrgId'] = $2
+        obj['ApiName'] = $3
+    elsif path =~ %r{^/customer-api/([^/]+)/org/([^/]+)/action/([^/]+)}
+        obj['ApiGroup'] = 'Customer'
+        obj['Controller'] = $1
+        obj['OrgId'] = $2
+        obj['ApiName'] = $3
+    elsif path =~ %r{^/admin-api/([^/]+)/org/([^/]+)/action/([^/]+)}
+        obj['ApiGroup'] = 'Admin'
         obj['Controller'] = $1
         obj['OrgId'] = $2
         obj['ApiName'] = $3
