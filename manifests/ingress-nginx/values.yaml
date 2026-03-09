@@ -20,6 +20,7 @@ domain19: aip-np.its-software-services.com
 domain20: aip.its-software-services.com
 domain21: please-scan.com
 domain22: dev-hubs.com
+domain23: please-protect.com
 
 backendService: ingress-nginx-production-controller
 backendServiceIap: ingress-nginx-production-ingress-nginx-iap-controller

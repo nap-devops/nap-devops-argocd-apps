@@ -385,3 +385,26 @@ spec:
                 name: {{ .Values.backendService }}
                 port:
                   number: 443
+
+    ### please-protect.com
+    - host: '{{ .Values.domain23 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
+
+    - host: '*.{{ .Values.domain23 }}'
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ .Values.backendService }}
+                port:
+                  number: 443
