@@ -73,6 +73,16 @@ spec:
             - values-files/dev-hubs-web/dev-hubs-web-00-values.yaml
             - values-files/dev-hubs-web/dev-hubs-web-01-development-values.yaml
             - values-files/dev-hubs-web/dev-hubs-web-03-development-image-tag.yaml
+
+            # Please-Protect-Portal
+            - values-files/please-protect-portal/please-protect-portal-00-values.yaml
+            - values-files/please-protect-portal/please-protect-portal-01-development-values.yaml
+            - values-files/please-protect-portal/please-protect-portal-03-development-image-tag.yaml
+
+            # Please-Protect-Center
+            - values-files/please-protect-center/please-protect-center-00-values.yaml
+            - values-files/please-protect-center/please-protect-center-01-development-values.yaml
+            - values-files/please-protect-center/please-protect-center-03-development-image-tag.yaml
       destination:
         name: in-cluster
         namespace: onix-v2-development
