@@ -66,16 +66,23 @@ def filter(event)
     event.remove("headers")
 
     populate_ts_aggregate(event)
-    extract_common_fields(event)
     
     ts = event.get('@timestamp')
     cust_ts_yyyy = event.get('cust_ts_yyyy')
     cust_ts_mm = event.get('cust_ts_mm')
     cust_ts_dd = event.get('cust_ts_dd')
+    logType = event.get('LogType')
+
+    if (logType == 'AgentStat')
+        full_index_name = "onix-v2-agent-stats-#{cust_ts_yyyy}-#{cust_ts_mm}-#{cust_ts_dd}"
+    else
+        # Audit Log
+        extract_common_fields(event)
+        full_index_name = "onix-v2-#{cust_ts_yyyy}-#{cust_ts_mm}-#{cust_ts_dd}"
+    end
 
     create_fields_from_json(event, 'data')
 
-    full_index_name = "onix-v2-#{cust_ts_yyyy}-#{cust_ts_mm}-#{cust_ts_dd}"
     event.set('index_name', full_index_name)
     event.set('@timestamp', ts)
 
