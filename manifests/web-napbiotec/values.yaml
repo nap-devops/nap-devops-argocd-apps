@@ -17,7 +17,7 @@ wordpress:
     enabled: true
     hostname: napbiotec.io
     extraHosts:
-      - name: www.napbiotec.io
+      #- name: www.napbiotec.io #ย้ายไปอีกที่นึงก่อน
       - name: www.napbiotec.com
       - name: napbiotec.com
 
