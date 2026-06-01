@@ -6,7 +6,7 @@ description: A Helm chart wrapper for web NAPBIOTEC
 
 dependencies:
   - name: wordpress
-    version: "31.0.2"
+    version: "15.0.7"
     repository: "https://charts.bitnami.com/bitnami"
     condition: wordpress.enabled
 
