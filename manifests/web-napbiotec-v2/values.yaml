@@ -28,7 +28,7 @@ wordpress:
     enabled: false
 
   externalDatabase:
-    host: web-napbiotec-production-mysql
+    host: web-napbiotec-v2-production-mysql
     port: 3306
     database: wordpress
     user: root
