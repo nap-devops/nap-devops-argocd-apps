@@ -1,5 +1,5 @@
 wordpress:
-  enabled: true
+  enabled: false
   replicaCount: 1
   wordpressScheme: https
   wordpressUsername: admin
@@ -14,7 +14,7 @@ wordpress:
       nginx.ingress.kubernetes.io/proxy-body-size: 50m
       kubernetes.io/ingress.allow-http: "true" #Wordpress will redirect to https internally  
     ingressClassName: nginx
-    enabled: true
+    enabled: false
     hostname: napbiotec.com #napbiotec.io
     extraHosts:
       #- name: www.napbiotec.io #ย้ายไปอีกที่นึงก่อน
@@ -35,7 +35,7 @@ wordpress:
     existingSecret: wordpress-db-login
 
 mysql:
-  enabled: true
+  enabled: false
   image:
     repository: bitnamilegacy/mysql
     #tag: 8.0.28

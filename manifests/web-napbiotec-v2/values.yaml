@@ -18,8 +18,8 @@ wordpress:
     hostname: napbiotec.io
     extraHosts:
       - name: www.napbiotec.io
-      #- name: www.napbiotec.com
-      #- name: napbiotec.com
+      - name: www.napbiotec.com
+      - name: napbiotec.com
 
   service:
     type: ClusterIP
