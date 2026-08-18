@@ -1,7 +1,7 @@
 domain: grafana.dev-hubs.com
 
 grafana:
-  enabled: true
+  enabled: false
 
   securityContext:
     runAsUser: 472
