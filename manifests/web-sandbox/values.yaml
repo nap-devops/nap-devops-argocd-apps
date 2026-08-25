@@ -16,6 +16,8 @@ wordpress:
     ingressClassName: nginx
     enabled: true
     hostname: temp.internal.napbiotec.io #Will chante to temp.internal.napbiotec.io
+    extraHosts:
+      - name: www.temp.internal.napbiotec.io
 
   service:
     type: ClusterIP
