@@ -1,0 +1,40 @@
+wordpress:
+  enabled: true
+  replicaCount: 1
+  wordpressScheme: https
+  wordpressUsername: admin
+  existingSecret: 'wordpress-user-login'
+
+  image:
+    tag: 6.8.2
+    repository: bitnamilegacy/wordpress
+
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 50m
+      kubernetes.io/ingress.allow-http: "true" #Wordpress will redirect to https internally  
+    ingressClassName: nginx
+    enabled: true
+    hostname: temp3.internal.napbiotec.io #Will chante to temp.internal.napbiotec.io
+
+  service:
+    type: ClusterIP
+
+  mariadb:
+    enabled: false
+
+  externalDatabase:
+    host: web-sandbox-production-mysql
+    port: 3306
+    database: wordpress
+    user: root
+    existingSecret: wordpress-db-login
+
+mysql:
+  enabled: true
+  image:
+    repository: bitnamilegacy/mysql
+    #tag: 8.0.28
+  auth:
+    database: wordpress
+    existingSecret: wordpress-db-login

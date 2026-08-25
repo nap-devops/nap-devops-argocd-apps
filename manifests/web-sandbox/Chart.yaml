@@ -1,0 +1,16 @@
+apiVersion: v2
+name: helm-web-napbiotec
+version: 1.0.0
+appVersion: 1.23.0
+description: A Helm chart wrapper for web NAPBIOTEC
+
+dependencies:
+  - name: wordpress
+    version: "15.0.7"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: wordpress.enabled
+
+  - name: mysql
+    version: "9.2.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mysql.enabled

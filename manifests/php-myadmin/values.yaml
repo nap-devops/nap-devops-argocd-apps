@@ -1,7 +1,7 @@
-domain: temp.internal.napbiotec.io # Will change
+domain: temp1.internal.napbiotec.io # Will change
 
 phpmyadmin:
-  enabled: true
+  enabled: false
   nameOverride: phpmyadmin
   image:
     repository: bitnamilegacy/phpmyadmin

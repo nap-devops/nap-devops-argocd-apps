@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: web-sandbox
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          custom: "true"
+  template:
+    metadata:
+      name: 'web-sandbox-{{name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: git@github.com:nap-devops/nap-devops-argocd-apps.git
+        targetRevision: "{{name}}" #Based on environment
+        path: 'manifests/web-sandbox'
+      destination:
+        name: in-cluster
+        namespace: web-sandbox
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
