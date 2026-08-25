@@ -15,7 +15,7 @@ wordpress:
       kubernetes.io/ingress.allow-http: "true" #Wordpress will redirect to https internally  
     ingressClassName: nginx
     enabled: true
-    hostname: temp3.internal.napbiotec.io #Will chante to temp.internal.napbiotec.io
+    hostname: temp.internal.napbiotec.io #Will chante to temp.internal.napbiotec.io
 
   service:
     type: ClusterIP
