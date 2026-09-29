@@ -42,3 +42,38 @@ mysql:
   auth:
     database: wordpress
     existingSecret: wordpress-db-login
+
+
+onixJobs:
+  imageTag: v1.0.25
+
+
+# WordPress backup/restore — see onix-v2-jobs/scripts-ruby/app-backup.rb and
+# app-restore.rb. To reuse this whole setup for another WordPress instance
+# (e.g. web-nap), copy this chart folder and only edit the values below —
+# nothing in templates/ needs to change.
+backupRestore:
+  enabled: true
+  namePrefix: napbiotec
+
+  backupSchedule: "0 22 * * *"    # daily 22:00
+  restoreSchedule: "30 22 * * *"  # 30 min after backup, daily 22:30
+  suspendBackup: false
+  suspendRestore: true            # only meant to run on the NEW server once migration cutover begins
+  restartAppPodAfterRestore: "false"
+
+  db:
+    type: mysql                   # postgresql | mysql
+    namespace: web-napbiotec-v2
+    podName: web-napbiotec-v2-production-mysql-0
+
+  app:
+    namespace: web-napbiotec-v2
+    podKeyword: wordpress         # used to find the pod since its name changes on restart
+    dataPath: /bitnami/wordpress
+
+  storage:
+    url: https://storage.googleapis.com
+    bucket: devhubs-backup
+    bucketPath: napbiotec-v2
+    filePrefix: wp-backup-gke
