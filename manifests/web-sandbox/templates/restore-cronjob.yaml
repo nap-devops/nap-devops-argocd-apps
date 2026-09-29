@@ -1,0 +1,31 @@
+{{- if .Values.backupRestore.enabled }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.backupRestore.namePrefix }}-restore
+  namespace: {{ .Values.backupRestore.app.namespace }}
+spec:
+  # Run on demand for testing: kubectl create job --from=cronjob/{{ .Values.backupRestore.namePrefix }}-restore {{ .Values.backupRestore.namePrefix }}-restore-manual -n {{ .Values.backupRestore.app.namespace }}
+  # Kept suspended by default — this is meant to run daily only on the NEW
+  # server once migration cutover begins, not on the sandbox / old server.
+  suspend: {{ .Values.backupRestore.suspendRestore }}
+  schedule: "{{ .Values.backupRestore.restoreSchedule }}"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 3600
+      template:
+        spec:
+          serviceAccountName: {{ .Values.backupRestore.namePrefix }}-backup-sa
+          restartPolicy: OnFailure
+          containers:
+            - name: app-restore
+              image: "pjamenaja/onix-v2-jobs:{{ .Values.onixJobs.imageTag }}"
+              imagePullPolicy: IfNotPresent
+              command: ["ruby"]
+              args: ["app-restore.rb"]
+              env:
+                {{- include "backupRestore.env" . | nindent 16 }}
+                - name: RESTART_APP_POD
+                  value: "{{ .Values.backupRestore.restartAppPodAfterRestore }}"
+{{- end }}
