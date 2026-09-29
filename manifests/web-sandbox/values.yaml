@@ -51,7 +51,7 @@ onixJobs:
 # nothing in templates/ needs to change.
 backupRestore:
   enabled: true
-  namePrefix: sandbox-gke
+  namePrefix: sandbox
 
   backupSchedule: "0 22 * * *"    # daily 22:00
   restoreSchedule: "30 22 * * *"  # 30 min after backup, daily 22:30
@@ -73,4 +73,4 @@ backupRestore:
     url: https://storage.googleapis.com
     bucket: devhubs-backup
     bucketPath: sandbox
-    filePrefix: wp-backup
+    filePrefix: wp-backup-gke
