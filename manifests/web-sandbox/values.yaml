@@ -42,7 +42,7 @@ mysql:
     existingSecret: wordpress-db-login
 
 onixJobs:
-  imageTag: v1.0.25
+  imageTag: v1.0.26
 
 
 # WordPress backup/restore — see onix-v2-jobs/scripts-ruby/app-backup.rb and
