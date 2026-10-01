@@ -1,0 +1,27 @@
+{{- if .Values.backupRestore.enabled }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.backupRestore.namePrefix }}-backup
+spec:
+  # Run on demand for testing: kubectl create job --from=cronjob/{{ .Values.backupRestore.namePrefix }}-backup {{ .Values.backupRestore.namePrefix }}-backup-manual -n {{ .Values.backupRestore.app.namespace }}
+  suspend: {{ .Values.backupRestore.suspendBackup }}
+  schedule: "{{ .Values.backupRestore.backupSchedule }}"
+  timeZone: "{{ .Values.backupRestore.timeZone | default "UTC" }}"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 3600
+      template:
+        spec:
+          serviceAccountName: {{ .Values.backupRestore.namePrefix }}-backup-sa
+          restartPolicy: OnFailure
+          containers:
+            - name: app-backup
+              image: "pjamenaja/onix-v2-jobs:{{ .Values.onixJobs.imageTag }}"
+              imagePullPolicy: IfNotPresent
+              command: ["ruby"]
+              args: ["app-backup.rb"]
+              env:
+                {{- include "backupRestore.env" . | nindent 16 }}
+{{- end }}
