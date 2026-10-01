@@ -18,7 +18,7 @@ backupRestore:
   namePrefix: snipeit
   timeZone: "Asia/Bangkok"
 
-  backupSchedule: "0 */4 * * *"
+  backupSchedule: "0 20 * * *"
   restoreSchedule: "30 2 * * *"
   suspendBackup: false
   suspendRestore: true
