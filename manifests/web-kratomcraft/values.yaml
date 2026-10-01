@@ -56,7 +56,7 @@ mysql:
 
 
 onixJobs:
-  imageTag: v1.0.26
+  imageTag: v1.0.27
 
 
 # WordPress backup/restore — see onix-v2-jobs/scripts-ruby/app-backup.rb and
