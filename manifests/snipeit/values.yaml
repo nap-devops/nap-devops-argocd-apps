@@ -1,7 +1,7 @@
 domain: snipeit.internal.napbiotec.io
 
 snipeit:
-  enabled: true
+  enabled: false
   config:
     snipeit:
       url: https://snipeit.internal.napbiotec.io
@@ -14,13 +14,13 @@ onixJobs:
   imageTag: develop-28f7fb8
 
 backupRestore:
-  enabled: true
+  enabled: false
   namePrefix: snipeit
   timeZone: "Asia/Bangkok"
 
   backupSchedule: "0 20 * * *"
   restoreSchedule: "30 2 * * *"
-  suspendBackup: false
+  suspendBackup: true
   suspendRestore: true
   restartAppPodAfterRestore: "true"
   s3TransferTimeoutSec: 3600
