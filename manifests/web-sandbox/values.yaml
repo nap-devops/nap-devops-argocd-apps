@@ -55,7 +55,7 @@ backupRestore:
 
   backupSchedule: "0 22 * * *"    # daily 22:00
   restoreSchedule: "30 22 * * *"  # 30 min after backup, daily 22:30
-  suspendBackup: false
+  suspendBackup: true
   suspendRestore: true            # only meant to run on the NEW server once migration cutover begins
   restartAppPodAfterRestore: "false"
 
